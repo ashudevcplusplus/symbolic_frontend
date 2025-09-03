@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import Features from '../components/Features';
-import HowItWorks from '../components/HowItWorks';
-import Testimonials from '../components/Testimonials';
-import Integrations from '../components/Integrations';
-import Pricing from '../components/Pricing';
-import FAQ from '../components/FAQ';
-import CTA from '../components/CTA';
-import Footer from '../components/Footer';
+const Features = lazy(() => import('../components/Features'));
+const HowItWorks = lazy(() => import('../components/HowItWorks'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const Integrations = lazy(() => import('../components/Integrations'));
+const Pricing = lazy(() => import('../components/Pricing'));
+const FAQ = lazy(() => import('../components/FAQ'));
+const CTA = lazy(() => import('../components/CTA'));
+const Footer = lazy(() => import('../components/Footer'));
 
 const LongLandingPage: React.FC = () => {
   return (
@@ -16,15 +16,15 @@ const LongLandingPage: React.FC = () => {
       <Header />
       <main>
         <Hero />
-        <Features />
-        <HowItWorks />
-        <Testimonials />
-        <Integrations />
-        <Pricing />
-        <FAQ />
-        <CTA />
+        <Suspense fallback={null}><Features /></Suspense>
+        <Suspense fallback={null}><HowItWorks /></Suspense>
+        <Suspense fallback={null}><Testimonials /></Suspense>
+        <Suspense fallback={null}><Integrations /></Suspense>
+        <Suspense fallback={null}><Pricing /></Suspense>
+        <Suspense fallback={null}><FAQ /></Suspense>
+        <Suspense fallback={null}><CTA /></Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}><Footer /></Suspense>
     </>
   );
 };

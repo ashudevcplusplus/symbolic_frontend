@@ -1,37 +1,33 @@
-import React, { useState, useEffect } from 'react';
-
-const usePrefersReducedMotion = () => {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
-    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  );
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const handleChange = () => {
-      setPrefersReducedMotion(mediaQuery.matches);
-    };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => {
-      mediaQuery.removeEventListener('change', handleChange);
-    };
-  }, []);
-  return prefersReducedMotion;
-};
+import React, { useState, useEffect, useRef } from 'react';
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 const InteractiveGlow: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: -2000, y: -2000 });
   const prefersReducedMotion = usePrefersReducedMotion();
+  const rafId = useRef<number | null>(null);
+  const lastPos = useRef({ x: -2000, y: -2000 });
 
   useEffect(() => {
     if (prefersReducedMotion) return;
 
     const handleMouseMove = (event: MouseEvent) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
+      lastPos.current = { x: event.clientX, y: event.clientY };
+      if (rafId.current == null) {
+        rafId.current = requestAnimationFrame(() => {
+          setMousePos(lastPos.current);
+          rafId.current = null;
+        });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId.current != null) {
+        cancelAnimationFrame(rafId.current);
+        rafId.current = null;
+      }
     };
   }, [prefersReducedMotion]);
 
@@ -46,11 +42,12 @@ const InteractiveGlow: React.FC = () => {
     transform: 'translate(-50%, -50%)',
     width: '800px',
     height: '800px',
-    background: 'radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, rgba(34, 211, 238, 0) 50%)',
+    background:
+      'radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, rgba(34, 211, 238, 0) 50%)',
     pointerEvents: 'none',
     zIndex: 20,
     transition: 'opacity 0.2s ease-out',
-    opacity: (mousePos.x > -1000) ? 1 : 0,
+    opacity: mousePos.x > -1000 ? 1 : 0,
   };
 
   return <div style={glowStyle} />;
