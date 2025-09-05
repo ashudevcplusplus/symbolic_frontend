@@ -7,17 +7,20 @@ const steps = [
   {
     Icon: HowItWorksIcon1,
     title: 'Integrate Your Universe',
-    description: 'Connect all your data sources and tools into a single, unified command center. No more cosmic drift between platforms.',
+    description:
+      'Connect all your data sources and tools into a single, unified command center. No more cosmic drift between platforms.',
   },
   {
     Icon: HowItWorksIcon2,
     title: 'Deploy AI Agents',
-    description: 'Launch intelligent automations that execute complex workflows at light speed. Set your mission objectives and watch them fly.',
+    description:
+      'Launch intelligent automations that execute complex workflows at light speed. Set your mission objectives and watch them fly.',
   },
   {
     Icon: HowItWorksIcon3,
     title: 'Achieve Clarity',
-    description: 'Receive actionable insights and real-time analytics from a stellar dashboard. Navigate your operations with sovereign precision.',
+    description:
+      'Receive actionable insights and real-time analytics from a stellar dashboard. Navigate your operations with sovereign precision.',
   },
 ];
 
@@ -52,31 +55,51 @@ const HowItWorks: React.FC = () => {
   const isInView = useInView(sectionRef);
 
   return (
-    <section id="how-it-works" className="py-26 bg-surface-1/50" ref={sectionRef}>
+    <section
+      id="how-it-works"
+      className="py-26 bg-surface-1/50"
+      ref={sectionRef}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">Navigate Your Workflow with Stellar Precision</h2>
+          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
+            Navigate Your Workflow with Stellar Precision
+          </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            A three-step flight plan to operational mastery. From data consolidation to actionable intelligence.
+            A three-step flight plan to operational mastery. From data
+            consolidation to actionable intelligence.
           </p>
         </div>
         <div className="relative max-w-main mx-auto">
-          <div className="absolute top-10 left-10 right-10 h-0.5 bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent hidden md:block" aria-hidden="true" />
+          <div
+            className="absolute top-10 left-10 right-10 h-0.5 bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent hidden md:block"
+            aria-hidden="true"
+          />
           <div className="grid md:grid-cols-3 gap-12">
             {steps.map((step, index) => (
-              <div key={index} className={`text-center relative ${isInView ? 'motion-safe:animate-stagger-in' : 'opacity-0 translate-y-3'}`} style={{ animationDelay: `${index * 150}ms` }}>
-                 <div className="flex justify-center items-center mb-6">
-                    <div className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-surface-1 shadow-glow-accent">
-                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-surface-2">
-                             <span className="text-2xl font-bold font-heading text-accent-primary">{index + 1}</span>
-                        </div>
+              <div
+                key={index}
+                className={`text-center relative ${isInView ? 'motion-safe:animate-stagger-in' : 'opacity-0 translate-y-3'}`}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="flex justify-center items-center mb-6">
+                  <div className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-surface-1 shadow-glow-accent">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-surface-2">
+                      <span className="text-2xl font-bold font-heading text-accent-primary">
+                        {index + 1}
+                      </span>
                     </div>
+                  </div>
                 </div>
                 <div className="mb-4 inline-flex items-center justify-center">
                   <step.Icon className="w-8 h-8 text-accent-primary" />
                 </div>
-                <h3 className="text-2xl font-extrabold font-heading text-text-primary mb-3">{step.title}</h3>
-                <p className="text-text-secondary font-light text-pretty">{step.description}</p>
+                <h3 className="text-2xl font-extrabold font-heading text-text-primary mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-text-secondary font-light text-pretty">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>

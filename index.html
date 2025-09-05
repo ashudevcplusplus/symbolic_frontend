@@ -24,23 +24,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v15/V8mQoQDjQSkFtoMM3T6r8E7mF71Q.woff2" as="font" type="font/woff2" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: hsl(var(--surface-0));
-      }
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(hsl(var(--brand-gradient-from)), hsl(var(--accent-mid)), hsl(var(--brand-gradient-to)));
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(hsl(var(--brand-gradient-from) / 0.8), hsl(var(--accent-mid) / 0.8), hsl(var(--brand-gradient-to) / 0.8));
-      }
-
       :root {
         /* Default to Dusk theme */
         --surface-0: 220 13% 4%;
@@ -60,6 +48,57 @@
         --warning: 38 92% 56%;
         --danger: 0 84% 60%;
         --info: 202 85% 58%;
+
+        /* Visual tokens */
+        --radius-xs: 8px;
+        --radius-sm: 12px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+        --radius-xl: 32px;
+        --radius-pill: 9999px;
+
+        --border-hair: 0.5px;
+        --border-thin: 1px;
+        --border-thick: 2px;
+
+        /* Shadow base hues */
+        --shadow: var(--surface-3);
+        --surface-hl: var(--surface-1);
+
+        /* Elevation presets */
+        --elevation-z1: 0 1px 2px hsl(var(--shadow) / .25);
+        --elevation-z2: 0 6px 20px hsl(var(--shadow) / .20), inset 0 1px 0 hsl(var(--surface-hl) / .6);
+        --elevation-z3: 0 16px 48px hsl(var(--shadow) / .25), 0 0 0 1px hsl(var(--surface-3) / .5);
+
+        /* Texture */
+        --texture-grain-alpha: .06;
+        --texture-dotgrid: radial-gradient(currentColor 1px, transparent 1px) 0 0/18px 18px;
+
+        /* Glass */
+        --glass-bg: hsl(var(--surface-1) / .65);
+        --glass-blur: 10px;
+        --glass-stroke: hsl(var(--surface-3) / .6);
+
+        /* Typography scales */
+        --type-display: clamp(2.25rem, 2vw + 1rem, 4rem);
+        --type-title: clamp(1.25rem, 1vw + 1rem, 1.75rem);
+        --type-price: clamp(2.5rem, 3vw + 1rem, 4rem);
+        --type-numeral-feature: tabular-nums;
+
+        /* Gradients */
+        --brand-gradient: linear-gradient(90deg, hsl(var(--brand-gradient-from)), hsl(var(--accent-mid)), hsl(var(--brand-gradient-to)));
+        --glass-gradient: linear-gradient(180deg, hsl(var(--surface-0) / .6), hsl(var(--surface-0) / .3));
+
+        /* Accents */
+        --accent-ring: hsl(var(--accent-primary) / .55);
+        --accent-tint: hsl(var(--accent-primary) / .08);
+
+        /* Grain opacity by theme (defaults) */
+        --grain-opacity: .06;
+        /* Starfield default palette */
+        --star-primary: #CFFAFE;
+        --star-secondary: #F5F3FF;
+        --star-accent: #E0F2FE;
       }
 
       [data-theme="dawn"] {
@@ -71,6 +110,10 @@
         --text-primary: 220 13% 18%;
         --text-secondary: 220 10% 35%;
         --text-muted: 220 8% 50%;
+        --grain-opacity: .05;
+        --star-primary: #CFFAFE;
+        --star-secondary: #F5F3FF;
+        --star-accent: #E0F2FE;
       }
       [data-theme="dusk"] {
         --surface-0: 220 13% 4%;
@@ -81,6 +124,10 @@
         --text-primary: 220 20% 96%;
         --text-secondary: 220 14% 80%;
         --text-muted: 220 12% 60%;
+        --grain-opacity: .07;
+        --star-primary: #CFFAFE;
+        --star-secondary: #F5F3FF;
+        --star-accent: #E0F2FE;
       }
       [data-theme="eclipse"] {
         --surface-0: 0 0% 0%;
@@ -91,6 +138,10 @@
         --text-primary: 0 0% 98%;
         --text-secondary: 0 0% 80%;
         --text-muted: 0 0% 60%;
+        --grain-opacity: .06;
+        --star-primary: #CFFAFE;
+        --star-secondary: #F5F3FF;
+        --star-accent: #E0F2FE;
       }
       [data-theme="nebula"] {
         --surface-0: 260 20% 5%;
@@ -103,6 +154,10 @@
         --text-muted: 260 12% 65%;
         --brand-gradient-from: 180 85% 58%;
         --brand-gradient-to: 310 81% 60%;
+        --grain-opacity: .06;
+        --star-primary: #CFFAFE;
+        --star-secondary: #F5F3FF;
+        --star-accent: #E0F2FE;
       }
       [data-theme="cosmic-dawn"] {
         --surface-0: 245 16% 10%;
@@ -118,6 +173,10 @@
         --accent-mid: 300 80% 70%;
         --brand-gradient-from: 30 90% 60%;
         --brand-gradient-to: 320 85% 60%;
+        --grain-opacity: .05;
+        --star-primary: #CFFAFE;
+        --star-secondary: #F5F3FF;
+        --star-accent: #E0F2FE;
       }
       [data-theme="hicon"] {
         --surface-0: 0 0% 0%;
@@ -133,6 +192,11 @@
         --accent-mid: 265 100% 55%;
         --brand-gradient-from: 202 100% 50%;
         --brand-gradient-to: 283 100% 55%;
+        --grain-opacity: .04;
+        /* Monochrome for HiCon */
+        --star-primary: #ffffff;
+        --star-secondary: #ffffff;
+        --star-accent: #ffffff;
       }
       
       [data-theme="hicon"] .has-gradient {
@@ -146,6 +210,11 @@
       body {
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       }
+      /* Mini utilities */
+      .u-stroke-1 { box-shadow: inset 0 0 0 1px hsl(var(--surface-3) / .6); }
+      .u-glass { background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur)); }
+      .u-text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .u-halo { box-shadow: 0 0 48px hsl(var(--accent-primary) / .25); }
     </style>
     <script>
       // IIFE to prevent FOUC
@@ -220,8 +289,9 @@
             },
             boxShadow: {
               'glow-accent': '0 0 20px -5px hsl(var(--accent-primary) / 0.5)',
-              'z1': '0 10px 15px -3px hsl(var(--accent-primary) / 0.1), 0 4px 6px -2px hsl(var(--accent-primary) / 0.05)',
-              'z2': '0 16px 25px -8px hsl(var(--accent-primary) / 0.12), 0 8px 10px -6px hsl(var(--accent-primary) / 0.08)',
+              'z1': 'var(--elevation-z1)',
+              'z2': 'var(--elevation-z2)',
+              'z3': 'var(--elevation-z3)',
               'focus-glow': '0 0 0 4px hsl(var(--brand-primary) / 0.4)',
               'inset-glow': 'inset 0 0 0 2px hsl(var(--accent-primary)), 0 0 20px -5px hsl(var(--accent-primary))',
             },
@@ -292,18 +362,10 @@
         }
       }
     </script>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.1.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/"
-  }
-}
-</script>
 </head>
   <body class="font-sans bg-surface-0 text-text-primary">
     <div id="root"></div>
+    <link rel="modulepreload" href="/index.tsx">
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

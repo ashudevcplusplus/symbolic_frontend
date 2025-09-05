@@ -8,7 +8,8 @@ const features = [
     id: 1,
     IconComponent: FeatureIcon1,
     title: 'Orbital Collaboration',
-    description: 'Create a gravitational center for your team with shared spaces for real-time file sharing and communication.',
+    description:
+      'Create a gravitational center for your team with shared spaces for real-time file sharing and communication.',
     position: { top: '10%', left: '20%' },
     depth: 0.8, // Closest
   },
@@ -16,7 +17,8 @@ const features = [
     id: 2,
     IconComponent: FeatureIcon2,
     title: 'Warp-Speed Automation',
-    description: 'Launch automated workflows that travel at the speed of light, saving you from traversing the same manual tasks.',
+    description:
+      'Launch automated workflows that travel at the speed of light, saving you from traversing the same manual tasks.',
     position: { top: '50%', left: '75%' },
     depth: 0.4, // Farthest
   },
@@ -24,10 +26,11 @@ const features = [
     id: 3,
     IconComponent: FeatureIcon3,
     title: 'Galactic Analytics',
-    description: 'Explore a universe of data and gain deep insights into your team\'s performance with stellar dashboards.',
+    description:
+      "Explore a universe of data and gain deep insights into your team's performance with stellar dashboards.",
     position: { top: '70%', left: '15%' },
     depth: 0.6, // Middle
-  }
+  },
 ];
 
 const Features: React.FC = () => {
@@ -45,7 +48,7 @@ const Features: React.FC = () => {
       y: el.offsetTop + el.offsetHeight / 2,
     };
   };
-  
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!mapRef.current) return;
     const rect = mapRef.current.getBoundingClientRect();
@@ -76,12 +79,18 @@ const Features: React.FC = () => {
   const p3 = getCoordinates(2);
 
   return (
-    <section id="features" className="py-26 bg-surface-0/80 backdrop-blur-sm scroll-mt-20">
+    <section
+      id="features"
+      className="py-26 bg-surface-0/80 backdrop-blur-sm scroll-mt-20"
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">Discover Your Constellation of Tools</h2>
+          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
+            Discover Your Constellation of Tools
+          </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Hover over the cosmos and click on a star to explore the features that form the Synergize universe.
+            Hover over the cosmos and click on a star to explore the features
+            that form the Synergize universe.
           </p>
         </div>
         <div className="grid lg:grid-cols-3 gap-16 items-center">
@@ -90,15 +99,19 @@ const Features: React.FC = () => {
             {activeFeature && (
               <div key={activeFeature.id} className="animate-fade-in-up">
                 <div className="mb-4 inline-block p-3 bg-accent-primary/20 rounded-lg">
-                    <activeFeature.IconComponent className="h-10 w-10 text-accent-primary" />
+                  <activeFeature.IconComponent className="h-10 w-10 text-accent-primary" />
                 </div>
-                <h3 className="text-2xl font-extrabold font-heading text-text-primary mb-3">{activeFeature.title}</h3>
-                <p className="text-text-secondary font-light text-pretty">{activeFeature.description}</p>
+                <h3 className="text-2xl font-extrabold font-heading text-text-primary mb-3">
+                  {activeFeature.title}
+                </h3>
+                <p className="text-text-secondary font-light text-pretty">
+                  {activeFeature.description}
+                </p>
               </div>
             )}
           </div>
           {/* Constellation Map */}
-          <div 
+          <div
             ref={mapRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
@@ -107,44 +120,99 @@ const Features: React.FC = () => {
           >
             <svg className="absolute top-0 left-0 w-full h-full" fill="none">
               <defs>
-                <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="hsl(var(--brand-primary))" stopOpacity="0" />
+                <linearGradient
+                  id="line-grad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop
+                    offset="0%"
+                    stopColor="hsl(var(--brand-primary))"
+                    stopOpacity="0"
+                  />
                   <stop offset="50%" stopColor="hsl(var(--brand-primary))" />
-                  <stop offset="100%" stopColor="hsl(var(--brand-primary))" stopOpacity="0" />
+                  <stop
+                    offset="100%"
+                    stopColor="hsl(var(--brand-primary))"
+                    stopOpacity="0"
+                  />
                 </linearGradient>
               </defs>
-              {p1 && p2 && <line x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="url(#line-grad)" strokeWidth="1" strokeDasharray="5" className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`} />}
-              {p2 && p3 && <line x1={p2.x} y1={p2.y} x2={p3.x} y2={p3.y} stroke="url(#line-grad)" strokeWidth="1" strokeDasharray="5" className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`} />}
-              {p3 && p1 && <line x1={p3.x} y1={p3.y} x2={p1.x} y2={p1.y} stroke="url(#line-grad)" strokeWidth="1" strokeDasharray="5" className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`} />}
+              {p1 && p2 && (
+                <line
+                  x1={p1.x}
+                  y1={p1.y}
+                  x2={p2.x}
+                  y2={p2.y}
+                  stroke="url(#line-grad)"
+                  strokeWidth="1"
+                  strokeDasharray="5"
+                  className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`}
+                />
+              )}
+              {p2 && p3 && (
+                <line
+                  x1={p2.x}
+                  y1={p2.y}
+                  x2={p3.x}
+                  y2={p3.y}
+                  stroke="url(#line-grad)"
+                  strokeWidth="1"
+                  strokeDasharray="5"
+                  className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`}
+                />
+              )}
+              {p3 && p1 && (
+                <line
+                  x1={p3.x}
+                  y1={p3.y}
+                  x2={p1.x}
+                  y2={p1.y}
+                  stroke="url(#line-grad)"
+                  strokeWidth="1"
+                  strokeDasharray="5"
+                  className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`}
+                />
+              )}
             </svg>
             {features.map((feature, index) => (
               <button
                 key={feature.id}
                 type="button"
-                ref={el => { featureRefs.current[index] = el; }}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-orbital p-2 rounded-full focus:outline-none focus-visible:shadow-focus-glow"
-                style={feature.position}
+                ref={(el) => {
+                  featureRefs.current[index] = el;
+                }}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-orbital p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                style={{ ...feature.position, willChange: 'transform' }}
                 onMouseEnter={() => setHoveredFeature(feature.id)}
                 onMouseLeave={() => setHoveredFeature(null)}
                 onClick={() => setActiveFeature(feature)}
                 aria-label={`Select feature: ${feature.title}`}
               >
-                <div className={`relative flex flex-col items-center cursor-pointer group`}>
-                    <div className={`transition-all duration-300 ease-orbital p-4 rounded-full bg-surface-1-augmented
-                      ${activeFeature.id === feature.id ? 'scale-110 shadow-glow-accent' : 'group-hover:scale-[1.01] group-hover:shadow-glow-accent'}`}>
-                      <div className="transition-transform duration-400 ease-orbital group-hover:rotate-6">
-                        <feature.IconComponent 
-                          className={`h-10 w-10 transition-colors duration-300 ease-in-out ${
-                            activeFeature.id === feature.id 
-                            ? 'text-accent-primary' 
+                <div
+                  className={`relative flex flex-col items-center cursor-pointer group`}
+                >
+                  <div
+                    className={`transition-all duration-300 ease-orbital p-4 rounded-full bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)]
+                      ${activeFeature.id === feature.id ? 'scale-110 u-halo' : 'group-hover:scale-[1.02]'} u-stroke-1`}
+                  >
+                    <div className="transition-transform duration-400 ease-orbital group-hover:rotate-6">
+                      <feature.IconComponent
+                        className={`h-10 w-10 transition-colors duration-300 ease-in-out ${
+                          activeFeature.id === feature.id
+                            ? 'text-accent-primary'
                             : 'text-text-muted group-hover:text-accent-primary'
-                          }`} 
-                        />
-                      </div>
+                        }`}
+                      />
                     </div>
-                    <span className={`absolute -bottom-8 text-sm font-heading transition-all duration-300 ${hoveredFeature === feature.id || activeFeature.id === feature.id ? 'opacity-100 text-accent-primary' : 'opacity-0'}`}>
-                        {feature.title}
-                    </span>
+                  </div>
+                  <span
+                    className={`absolute -bottom-8 text-sm font-heading transition-all duration-300 ${hoveredFeature === feature.id || activeFeature.id === feature.id ? 'opacity-100 text-accent-primary' : 'opacity-0'}`}
+                  >
+                    {feature.title}
+                  </span>
                 </div>
               </button>
             ))}

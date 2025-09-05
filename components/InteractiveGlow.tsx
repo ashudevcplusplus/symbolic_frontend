@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 
 const usePrefersReducedMotion = () => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(
@@ -41,19 +41,22 @@ const InteractiveGlow: React.FC = () => {
 
   const glowStyle: React.CSSProperties = {
     position: 'fixed',
-    top: mousePos.y,
-    left: mousePos.x,
-    transform: 'translate(-50%, -50%)',
+    top: 0,
+    left: 0,
+    transform: `translate3d(${mousePos.x - 400}px, ${mousePos.y - 400}px, 0)`,
     width: '800px',
     height: '800px',
-    background: 'radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, rgba(34, 211, 238, 0) 50%)',
+    background:
+      'radial-gradient(40% 40% at 50% 50%, hsl(var(--accent-primary) / 0.10) 0%, transparent 60%)',
     pointerEvents: 'none',
     zIndex: 20,
     transition: 'opacity 0.2s ease-out',
-    opacity: (mousePos.x > -1000) ? 1 : 0,
+    willChange: 'transform, opacity',
+    opacity: mousePos.x > -1000 ? 0.6 : 0,
+    mixBlendMode: 'plus-lighter',
   };
 
   return <div style={glowStyle} />;
 };
 
-export default InteractiveGlow;
+export default memo(InteractiveGlow);
