@@ -60,12 +60,12 @@ const HowItWorks: React.FC = () => {
       className="py-26 bg-surface-1/50"
       ref={sectionRef}
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
             Navigate Your Workflow with Stellar Precision
           </h2>
-          <p className="text-xl text-text-muted max-w-prose mx-auto font-light text-pretty">
+          <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
             A three-step flight plan to operational mastery. From data
             consolidation to actionable intelligence.
           </p>

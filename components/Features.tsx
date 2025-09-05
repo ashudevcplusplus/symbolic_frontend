@@ -7,97 +7,216 @@ const features = [
   {
     id: 1,
     IconComponent: FeatureIcon1,
-    title: 'Lambda Processing',
+    title: 'Orbital Collaboration',
     description:
-      'Advanced serverless compute optimized for AI workloads with automatic scaling and intelligent resource allocation.',
+      'Create a gravitational center for your team with shared spaces for real-time file sharing and communication.',
+    position: { top: '10%', left: '20%' },
+    depth: 0.8, // Closest
   },
   {
     id: 2,
     IconComponent: FeatureIcon2,
-    title: 'Quantum Analytics',
+    title: 'Warp-Speed Automation',
     description:
-      'Harness the power of quantum-inspired algorithms to process massive datasets and uncover hidden patterns in your data.',
+      'Launch automated workflows that travel at the speed of light, saving you from traversing the same manual tasks.',
+    position: { top: '50%', left: '75%' },
+    depth: 0.4, // Farthest
   },
   {
     id: 3,
     IconComponent: FeatureIcon3,
-    title: 'Neural Networks',
+    title: 'Galactic Analytics',
     description:
-      'Deploy custom neural network architectures with our drag-and-drop visual designer and pre-trained model library.',
+      "Explore a universe of data and gain deep insights into your team's performance with stellar dashboards.",
+    position: { top: '70%', left: '15%' },
+    depth: 0.6, // Middle
   },
 ];
 
 const Features: React.FC = () => {
+  const [activeFeature, setActiveFeature] = useState(features[0]);
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+
+  const featureRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  const getCoordinates = (index: number) => {
+    const el = featureRefs.current[index];
+    if (!el) return null;
+    return {
+      x: el.offsetLeft + el.offsetWidth / 2,
+      y: el.offsetTop + el.offsetHeight / 2,
+    };
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!mapRef.current) return;
+    const rect = mapRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    featureRefs.current.forEach((el, index) => {
+      if (el) {
+        const feature = features[index];
+        const sensitivity = 30; // Control movement intensity
+        const translateX = (x / rect.width) * sensitivity * feature.depth;
+        const translateY = (y / rect.height) * sensitivity * feature.depth;
+        el.style.transform = `translate(-50%, -50%) translate3d(${translateX}px, ${translateY}px, 0)`;
+      }
+    });
+  };
+
+  const handleMouseLeave = () => {
+    featureRefs.current.forEach((el) => {
+      if (el) {
+        el.style.transform = `translate(-50%, -50%)`;
+      }
+    });
+  };
+
+  const p1 = getCoordinates(0);
+  const p2 = getCoordinates(1);
+  const p3 = getCoordinates(2);
+
   return (
     <section
       id="features"
-      className="py-32 bg-surface-0/80 backdrop-blur-sm scroll-mt-20"
+      className="py-26 bg-surface-0/80 backdrop-blur-sm scroll-mt-20"
     >
-      <div className="container mx-auto max-w-main">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          {/* H1 max 2 lines, λ=-1.3% - PAGE α specification */}
-          <h2
-            className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance tracking-display leading-tight max-w-4xl mx-auto"
-            style={{ letterSpacing: '-0.013em' }}
-          >
-            Discover Your Lambda Gallery
+          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
+            Discover Your Constellation of Tools
           </h2>
-          {/* subhead 58–62ch - PAGE α specification */}
-          <p
-            className="text-xl text-text-secondary max-w-[58ch] md:max-w-[62ch] mx-auto font-light text-pretty leading-heading"
-            style={{ lineHeight: '1.12' }}
-          >
-            Transform your workflow with intelligent features designed for
-            precision and clarity.
+          <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
+            Hover over the cosmos and click on a star to explore the features
+            that form the Synergize universe.
           </p>
         </div>
-        {/* Grid γ: md→2 cols, lg→3 cols - PAGE α specification */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          {/* Feature Cards - PAGE α specifications */}
-          {features.map((feature) => (
-            <div
-              key={feature.id}
-              className="bg-surface-1-augmented shadow-z1 rounded-xl p-8 relative group cursor-pointer transition-all duration-200 ease-out-cubic hover:shadow-z2 hover:scale-[1.01] focus-within:shadow-focus-glow focus-within:ring-4 focus-within:ring-brand-primary/40"
-              style={{ minHeight: '320px' }} // card min height aligned per row
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  // Handle keyboard activation if needed
-                }
-              }}
-              aria-label={`View details for ${feature.title}`}
-            >
-              {/* Badges top-left - PAGE α specification */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  New
-                </span>
+        <div className="grid lg:grid-cols-3 gap-16 items-center">
+          {/* Details Panel */}
+          <div className="bg-surface-1-augmented p-8 rounded-2xl min-h-[24rem] flex flex-col justify-center lg:order-1">
+            {activeFeature && (
+              <div key={activeFeature.id} className="animate-fade-in-up">
+                <div className="mb-4 inline-block p-3 bg-accent-primary/20 rounded-lg">
+                  <activeFeature.IconComponent className="h-10 w-10 text-accent-primary" />
+                </div>
+                <h3 className="text-2xl font-extrabold font-heading text-text-primary mb-3">
+                  {activeFeature.title}
+                </h3>
+                <p className="text-text-secondary font-light text-pretty">
+                  {activeFeature.description}
+                </p>
               </div>
-
-              {/* Icon ∅=32–40, ψ=1.5px - PAGE α specification */}
-              <div className="mb-6 inline-block p-4 bg-accent-primary/10 rounded-xl group-hover:bg-accent-primary/20 transition-colors duration-200">
-                <feature.IconComponent
-                  className="w-8 h-8 text-accent-primary"
-                  style={{ strokeWidth: '1.5px' }}
+            )}
+          </div>
+          {/* Constellation Map */}
+          <div
+            ref={mapRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            className="lg:col-span-2 h-[32rem] relative motion-safe:transform-gpu lg:order-2"
+            style={{ perspective: '1000px' }}
+          >
+            <svg className="absolute top-0 left-0 w-full h-full" fill="none">
+              <defs>
+                <linearGradient
+                  id="line-grad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop
+                    offset="0%"
+                    stopColor="hsl(var(--brand-primary))"
+                    stopOpacity="0"
+                  />
+                  <stop offset="50%" stopColor="hsl(var(--brand-primary))" />
+                  <stop
+                    offset="100%"
+                    stopColor="hsl(var(--brand-primary))"
+                    stopOpacity="0"
+                  />
+                </linearGradient>
+              </defs>
+              {p1 && p2 && (
+                <line
+                  x1={p1.x}
+                  y1={p1.y}
+                  x2={p2.x}
+                  y2={p2.y}
+                  stroke="url(#line-grad)"
+                  strokeWidth="1"
+                  strokeDasharray="5"
+                  className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`}
                 />
-              </div>
-
-              {/* Title with proper contrast r≥4.5 - PAGE α A11y specification */}
-              <h3 className="text-xl font-extrabold font-heading text-text-primary mb-3 group-hover:text-accent-primary transition-colors duration-200">
-                {feature.title}
-              </h3>
-
-              {/* Body text r≥4.5, 48–65ch copy - PAGE α specifications */}
-              <p className="text-text-secondary font-light text-pretty leading-relaxed max-w-[48ch] lg:max-w-[65ch]">
-                {feature.description}
-              </p>
-
-              {/* Hairline separator 1px gradient - PAGE α micro-redlines */}
-              <div className="absolute bottom-4 left-4 right-4 h-px bg-gradient-to-r from-transparent via-text-muted/20 to-transparent"></div>
-            </div>
-          ))}
+              )}
+              {p2 && p3 && (
+                <line
+                  x1={p2.x}
+                  y1={p2.y}
+                  x2={p3.x}
+                  y2={p3.y}
+                  stroke="url(#line-grad)"
+                  strokeWidth="1"
+                  strokeDasharray="5"
+                  className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`}
+                />
+              )}
+              {p3 && p1 && (
+                <line
+                  x1={p3.x}
+                  y1={p3.y}
+                  x2={p1.x}
+                  y2={p1.y}
+                  stroke="url(#line-grad)"
+                  strokeWidth="1"
+                  strokeDasharray="5"
+                  className={`transition-all duration-400 ${activeFeature ? 'opacity-30' : 'opacity-0'}`}
+                />
+              )}
+            </svg>
+            {features.map((feature, index) => (
+              <button
+                key={feature.id}
+                type="button"
+                ref={(el) => {
+                  featureRefs.current[index] = el;
+                }}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-orbital p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                style={{ ...feature.position, willChange: 'transform' }}
+                onMouseEnter={() => setHoveredFeature(feature.id)}
+                onMouseLeave={() => setHoveredFeature(null)}
+                onClick={() => setActiveFeature(feature)}
+                aria-label={`Select feature: ${feature.title}`}
+              >
+                <div
+                  className={`relative flex flex-col items-center cursor-pointer group`}
+                >
+                  <div
+                    className={`transition-all duration-300 ease-orbital p-4 rounded-full bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)]
+                      ${activeFeature.id === feature.id ? 'scale-110 u-halo' : 'group-hover:scale-[1.02]'} u-stroke-1`}
+                  >
+                    <div className="transition-transform duration-400 ease-orbital group-hover:rotate-6">
+                      <feature.IconComponent
+                        className={`h-10 w-10 transition-colors duration-300 ease-in-out ${
+                          activeFeature.id === feature.id
+                            ? 'text-accent-primary'
+                            : 'text-text-muted group-hover:text-accent-primary'
+                        }`}
+                      />
+                    </div>
+                  </div>
+                  <span
+                    className={`absolute -bottom-8 text-sm font-heading transition-all duration-300 ${hoveredFeature === feature.id || activeFeature.id === feature.id ? 'opacity-100 text-accent-primary' : 'opacity-0'}`}
+                  >
+                    {feature.title}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>

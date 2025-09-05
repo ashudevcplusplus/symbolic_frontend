@@ -1,5 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import React, { useMemo, useState, useEffect, memo } from 'react';
 
 type CelestialObject = {
   id: string;
@@ -140,8 +139,13 @@ const Starfield: React.FC = () => {
           style={parallaxStyle}
         >
           <div
-            className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_rgba(34,211,238,0.1)_0%,_rgba(0,0,0,0)_70%)]"
-            style={{ transform: 'translateZ(-600px) scale(5)' }}
+            className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, hsl(var(--accent-primary)/.10) 0%, transparent 70%)',
+              mixBlendMode: 'plus-lighter',
+              transform: 'translateZ(-600px) scale(5)',
+            }}
           />
 
           <div
@@ -151,8 +155,12 @@ const Starfield: React.FC = () => {
             {celestialObjects.farStars.map((star) => (
               <div
                 key={star.id}
-                className="absolute rounded-full bg-slate-400/70"
-                style={star.style}
+                className="absolute rounded-full"
+                style={{
+                  ...star.style,
+                  backgroundColor:
+                    'var(--star-secondary, rgba(245,243,255,0.70))',
+                }}
               />
             ))}
           </div>
@@ -164,8 +172,11 @@ const Starfield: React.FC = () => {
             {celestialObjects.midStars.map((star) => (
               <div
                 key={star.id}
-                className="absolute rounded-full bg-slate-300/90"
-                style={star.style}
+                className="absolute rounded-full"
+                style={{
+                  ...star.style,
+                  backgroundColor: 'var(--star-accent, rgba(224,242,254,0.90))',
+                }}
               />
             ))}
           </div>
@@ -177,8 +188,11 @@ const Starfield: React.FC = () => {
             {celestialObjects.nearStars.map((star) => (
               <div
                 key={star.id}
-                className="absolute rounded-full bg-text-primary"
-                style={star.style}
+                className="absolute rounded-full"
+                style={{
+                  ...star.style,
+                  backgroundColor: 'var(--star-primary, rgba(207,250,254,1))',
+                }}
               />
             ))}
           </div>
@@ -190,8 +204,12 @@ const Starfield: React.FC = () => {
           {celestialObjects.shootingStars.map((star) => (
             <div
               key={star.id}
-              className="absolute h-[1px] w-40 bg-gradient-to-r from-white/40 to-transparent animate-shooting-star"
-              style={star.style}
+              className="absolute h-[1px] w-40 animate-shooting-star"
+              style={{
+                ...star.style,
+                background:
+                  'linear-gradient(to right, var(--star-primary, rgba(207,250,254,0.4)), transparent)',
+              }}
             />
           ))}
           {celestialObjects.asteroids.map((asteroid) => (
@@ -207,4 +225,4 @@ const Starfield: React.FC = () => {
   );
 };
 
-export default Starfield;
+export default memo(Starfield);

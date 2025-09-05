@@ -35,21 +35,29 @@ const FaqItem: React.FC<{
   onClick: () => void;
 }> = ({ item, isOpen, onClick }) => {
   return (
-    <div className="mb-4 border-b border-surface-2">
+    <div
+      className="mb-4"
+      style={{ borderBottom: '1px solid hsl(var(--surface-2))' }}
+    >
       <button
         onClick={onClick}
-        className="flex justify-between items-center w-full py-6 text-left focus:outline-none focus-visible:shadow-focus-glow rounded-md"
+        className={`flex justify-between items-center w-full text-left focus:outline-none focus-visible:shadow-focus-glow rounded-md`}
+        style={{
+          paddingBlock: 24,
+          backgroundColor: isOpen ? 'var(--accent-tint)' : 'transparent',
+        }}
         aria-expanded={isOpen}
       >
         <span className="text-lg font-medium text-text-primary">
           {item.question}
         </span>
         <ChevronDownIcon
-          className={`w-6 h-6 text-text-muted transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+          className={`w-6 h-6 transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-accent-primary' : 'rotate-0 text-text-muted'}`}
         />
       </button>
       <div
         className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+        style={{ willChange: 'opacity' }}
       >
         <div className="overflow-hidden">
           <p className="pb-6 text-text-secondary font-light text-pretty">
@@ -75,9 +83,9 @@ const FAQ: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
             Frequently Charted Questions
           </h2>
-          <p className="text-xl text-text-muted max-w-prose mx-auto font-light text-pretty">
-            Navigating the cosmos of information. If your question isn&apos;t
-            here, our mission control is ready to assist.
+          <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
+            Navigating the cosmos of information. If your question isn't here,
+            our mission control is ready to assist.
           </p>
         </div>
         <div className="max-w-reading mx-auto">

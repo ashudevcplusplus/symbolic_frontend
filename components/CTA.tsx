@@ -19,15 +19,15 @@ const CTA: React.FC = () => {
   };
 
   return (
-    <section id="cta" className="py-26">
-      <div className="container mx-auto">
+    <section className="py-26">
+      <div className="container mx-auto px-6">
         <div
           ref={containerRef}
           onMouseMove={handleMouseMove}
           className="bg-gradient-to-r from-brand-gradient-from/80 via-accent-mid/80 to-brand-gradient-to/80 rounded-2xl p-20 text-center relative overflow-hidden group has-gradient"
         >
           <div
-            className="absolute inset-0 bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to motion-safe:animate-swirl opacity-30 mix-blend-soft-light transition-transform duration-[400ms] ease-orbital has-gradient"
+            className="absolute inset-0 bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to motion-safe:animate-swirl opacity-30 mix-blend-soft-light transition-transform duration-400 ease-orbital has-gradient"
             style={{
               transform:
                 'rotate(calc(var(--mouse-x, 0.5) * 45deg)) scale(calc(1.2 + var(--mouse-y, 0.5) * 0.3))',
@@ -36,7 +36,7 @@ const CTA: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-white mb-4 relative z-10 text-balance">
             Ready to Enter a New Dimension of Work?
           </h2>
-          <p className="text-text-primary/80 max-w-prose mx-auto mb-8 relative z-10 text-xl font-light text-pretty">
+          <p className="text-text-primary/80 max-w-reading mx-auto mb-8 relative z-10 text-xl font-light text-pretty">
             Join thousands of innovators charting new courses in productivity.
             Your 14-day trial is your launchpad.
           </p>

@@ -37,8 +37,17 @@ const ThemeSwitcher: React.FC = () => {
         setIsOpen(false);
       }
     };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const currentThemeConfig = themeConfig[theme] || themeConfig.dusk;
@@ -47,7 +56,7 @@ const ThemeSwitcher: React.FC = () => {
     <div ref={dropdownRef} className="relative">
       <button
         onClick={handleToggle}
-        className="flex items-center justify-center w-12 h-12 rounded-full bg-surface-1 hover:bg-surface-2 transition-colors focus:outline-none focus-visible:shadow-focus-glow"
+        className="flex items-center justify-center w-12 h-12 rounded-[12px] bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)] transition-colors focus:outline-none focus-visible:shadow-focus-glow u-stroke-1 hover:shadow-z1"
         aria-label={`Change theme. Current theme: ${currentThemeConfig.label}`}
         aria-haspopup="true"
         aria-expanded={isOpen}
@@ -55,7 +64,14 @@ const ThemeSwitcher: React.FC = () => {
         {currentThemeConfig.icon}
       </button>
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-48 bg-surface-0 border border-surface-2 rounded-lg shadow-lg py-1 z-50">
+        <div
+          className="absolute top-full right-0 mt-2 w-48 rounded-[12px] py-1 z-50 transition-opacity motion-safe:transform-gpu u-stroke-1"
+          style={{
+            willChange: 'opacity, transform',
+            background: 'var(--glass-bg)',
+            backdropFilter: 'blur(var(--glass-blur))',
+          }}
+        >
           {themes.map((t) => {
             const config = themeConfig[t];
             if (!config) return null;
@@ -66,10 +82,10 @@ const ThemeSwitcher: React.FC = () => {
                   setTheme(t);
                   setIsOpen(false);
                 }}
-                className={`flex items-center gap-3 w-full px-4 py-2 text-left text-sm transition-colors ${
+                className={`flex items-center gap-3 w-full px-4 py-2 text-left text-sm transition-colors rounded-[12px] ${
                   theme === t
-                    ? 'text-accent-primary'
-                    : 'text-text-secondary hover:bg-surface-1 hover:text-text-primary'
+                    ? 'text-accent-primary shadow-[0_0_0_2px_var(--accent-ring)]'
+                    : 'text-text-secondary hover:bg-[hsl(var(--accent-primary)/.08)] hover:text-text-primary'
                 }`}
               >
                 {config.icon}

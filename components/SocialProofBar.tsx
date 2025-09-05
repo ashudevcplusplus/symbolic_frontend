@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SlackLogo } from './icons/SlackLogo';
 import { GitHubLogo } from './icons/GitHubLogo';
 import { GoogleWorkspaceLogo } from './icons/GoogleWorkspaceLogo';
@@ -8,7 +8,17 @@ import { FigmaLogo } from './icons/FigmaLogo';
 import { ZoomLogo } from './icons/ZoomLogo';
 import { StripeLogo } from './icons/StripeLogo';
 
-const logos = [
+interface Logo {
+  name: string;
+  Icon: React.ComponentType<{ className?: string }>;
+}
+
+interface SocialProofBarProps {
+  logos?: Logo[];
+  blurb?: string;
+}
+
+const defaultLogos: Logo[] = [
   { name: 'Slack', Icon: SlackLogo },
   { name: 'GitHub', Icon: GitHubLogo },
   { name: 'Google Workspace', Icon: GoogleWorkspaceLogo },
@@ -40,31 +50,43 @@ const Marquee: React.FC<{
   </div>
 );
 
-const Integrations: React.FC = () => {
+const SocialProofBar: React.FC<SocialProofBarProps> = ({
+  logos = defaultLogos,
+  blurb,
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!logos.length) return null;
+
   return (
-    <section id="integrations" className="py-26">
+    <section className="py-8">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Connect Your Entire Digital Universe
-          </h2>
-          <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Synergize integrates seamlessly with the tools your team already
-            loves.
-          </p>
-        </div>
-        <div className="space-y-8">
+        {blurb && (
+          <div className="text-center mb-6">
+            <p className="text-text-muted font-medium">{blurb}</p>
+          </div>
+        )}
+
+        <div
+          className={`space-y-6 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        >
           <Marquee direction="left">
-            {logos.slice(0, 8).map(({ name, Icon }) => (
+            {logos.map(({ name, Icon }) => (
               <div key={name} aria-label={name} className="flex-shrink-0">
-                <Icon className="h-12 w-auto text-text-muted transition-[filter,opacity] duration-300 [filter:grayscale(.2)_opacity(.85)] hover:[filter:grayscale(0)_opacity(1)] focus-visible:[filter:grayscale(0)_opacity(1)]" />
+                <Icon className="h-8 w-auto text-text-muted transition-all duration-300 [filter:grayscale(.3)_opacity(.8)] hover:[filter:grayscale(0)_opacity(1)] focus-visible:[filter:grayscale(0)_opacity(1)] hover:scale-110 focus-visible:scale-110" />
               </div>
             ))}
           </Marquee>
+
           <Marquee direction="right">
-            {logos.slice(0, 8).map(({ name, Icon }) => (
+            {logos.map(({ name, Icon }) => (
               <div key={name} aria-label={name} className="flex-shrink-0">
-                <Icon className="h-12 w-auto text-text-muted transition-[filter,opacity] duration-300 [filter:grayscale(.2)_opacity(.85)] hover:[filter:grayscale(0)_opacity(1)] focus-visible:[filter:grayscale(0)_opacity(1)]" />
+                <Icon className="h-8 w-auto text-text-muted transition-all duration-300 [filter:grayscale(.3)_opacity(.8)] hover:[filter:grayscale(0)_opacity(1)] focus-visible:[filter:grayscale(0)_opacity(1)] hover:scale-110 focus-visible:scale-110" />
               </div>
             ))}
           </Marquee>
@@ -74,4 +96,4 @@ const Integrations: React.FC = () => {
   );
 };
 
-export default Integrations;
+export default SocialProofBar;

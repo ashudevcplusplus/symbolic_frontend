@@ -30,7 +30,7 @@ const Header: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-orbital ${isScrolled ? 'top-4' : 'top-0'}`}
     >
       <header
-        className={`container mx-auto rounded-2xl transition-all duration-300 ease-orbital ${isScrolled ? 'bg-surface-0/80 backdrop-blur-sm shadow-2xl ring-1 ring-accent-primary/10' : 'bg-transparent'}`}
+        className={`container mx-auto rounded-2xl transition-all duration-300 ease-orbital ${isScrolled ? 'bg-surface-0/80 backdrop-blur-sm shadow-2xl shadow-accent-primary/10' : 'bg-transparent'}`}
       >
         <div className="px-6 py-2 flex justify-between items-center">
           <a
@@ -48,12 +48,6 @@ const Header: React.FC = () => {
               Features
             </a>
             <a
-              href="#integrations"
-              className="text-text-muted hover:text-accent-primary transition-colors rounded-md focus:outline-none focus-visible:shadow-focus-glow px-3 py-4"
-            >
-              Integrations
-            </a>
-            <a
               href="#testimonials"
               className="text-text-muted hover:text-accent-primary transition-colors rounded-md focus:outline-none focus-visible:shadow-focus-glow px-3 py-4"
             >
@@ -66,16 +60,10 @@ const Header: React.FC = () => {
               Pricing
             </a>
             <a
-              href="#faq"
+              href="#"
               className="text-text-muted hover:text-accent-primary transition-colors rounded-md focus:outline-none focus-visible:shadow-focus-glow px-3 py-4"
             >
-              FAQ
-            </a>
-            <a
-              href="#cta"
-              className="text-text-muted hover:text-accent-primary transition-colors rounded-md focus:outline-none focus-visible:shadow-focus-glow px-3 py-4"
-            >
-              Contact
+              Docs
             </a>
           </nav>
           <div className="hidden md:flex items-center space-x-4">
