@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             </a>
             <a
               href="#"
-              className="has-gradient has-shimmer bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white font-semibold px-5 py-3 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg shadow-sky-500/30 focus:outline-none focus-visible:shadow-focus-glow bg-[length:200%_auto] motion-safe:animate-shimmer"
+              className="has-gradient has-shimmer bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg shadow-sky-500/30 focus:outline-none focus-visible:shadow-focus-glow bg-[length:200%_auto] motion-safe:animate-shimmer"
             >
               Sign Up
             </a>
@@ -186,7 +186,7 @@ const Header: React.FC = () => {
                 <a
                   href="#"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="has-gradient has-shimmer bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white font-semibold px-6 py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg shadow-sky-500/30 focus:outline-none focus-visible:shadow-focus-glow bg-[length:200%_auto] motion-safe:animate-shimmer text-center"
+                  className="has-gradient has-shimmer bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg shadow-sky-500/30 focus:outline-none focus-visible:shadow-focus-glow bg-[length:200%_auto] motion-safe:animate-shimmer text-center"
                 >
                   Sign Up
                 </a>

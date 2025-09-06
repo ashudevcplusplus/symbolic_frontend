@@ -37,7 +37,7 @@ const PricingPlan: React.FC<{
 }> = ({ plan, isYearly, isVisible, animationDelay }) => {
   return (
     <div
-      className={`relative flex flex-col p-10 rounded-[24px] transition-all duration-300 ease-orbital motion-safe:hover:scale-[1.01] ${plan.popular ? 'lg:scale-[1.04]' : ''} ${isVisible ? 'motion-safe:animate-stagger-in' : 'opacity-0 translate-y-3'}`}
+      className={`relative flex flex-col p-10 rounded-2xl transition-all duration-300 ease-orbital motion-safe:hover:scale-[1.01] ${plan.popular ? 'lg:scale-[1.04]' : ''} ${isVisible ? 'motion-safe:animate-stagger-in' : 'opacity-0 translate-y-3'}`}
       style={{
         animationDelay,
         willChange: 'transform, opacity',
@@ -91,7 +91,7 @@ const PricingPlan: React.FC<{
       </ul>
       <a
         href="#"
-        className={`w-full text-center font-bold py-3 rounded-[16px] transition-all duration-300 text-lg focus:outline-none focus-visible:shadow-focus-glow ${plan.popular ? 'bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white hover:opacity-90 bg-[length:200%_auto] motion-safe:animate-shimmer has-gradient has-shimmer' : 'bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)] text-text-primary hover:shadow-z3 u-stroke-1'}`}
+        className={`w-full text-center font-bold py-3 rounded-xl transition-all duration-300 text-lg focus:outline-none focus-visible:shadow-focus-glow ${plan.popular ? 'bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white hover:opacity-90 bg-[length:200%_auto] motion-safe:animate-shimmer has-gradient has-shimmer' : 'bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)] text-text-primary hover:shadow-z3 u-stroke-1'}`}
       >
         Choose Plan
       </a>
