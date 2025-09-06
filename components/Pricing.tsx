@@ -158,7 +158,7 @@ const Pricing: React.FC = () => {
             Simple Pricing, Real Savings
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Most teams save more on AI costs than they spend on Synergize. 
+            Most teams save more on AI costs than they spend on promtflow.ai. 
             No hidden fees, no complex contracts.
           </p>
         </div>

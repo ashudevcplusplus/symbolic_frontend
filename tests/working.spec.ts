@@ -5,7 +5,7 @@ test.describe('Working E2E Tests', () => {
     await page.goto('/');
     
     // Check page title
-    await expect(page).toHaveTitle(/Synergize/);
+    await expect(page).toHaveTitle(/promtflow.ai/);
     
     // Check main heading exists
     await expect(page.getByRole('heading', { name: /Precision for Mission-Critical AI/ })).toBeVisible();

@@ -80,7 +80,7 @@ const Newsletter: React.FC<NewsletterProps> = () => {
             </h3>
             <p className="text-text-secondary mb-8">
               Be among the first to fix your AI reliability problems. 
-              Get early access to Synergize and join teams who've already solved this.
+              Get early access to promtflow.ai and join teams who've already solved this.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">

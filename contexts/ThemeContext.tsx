@@ -34,7 +34,7 @@ const getInitialTheme = (): Theme => {
     return 'dusk';
   }
   try {
-    const storedTheme = localStorage.getItem('synergize-theme');
+    const storedTheme = localStorage.getItem('promtflow-theme');
     if (storedTheme && themes.includes(storedTheme as Theme)) {
       return storedTheme as Theme;
     }
@@ -55,7 +55,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     try {
-      localStorage.setItem('synergize-theme', theme);
+      localStorage.setItem('promtflow-theme', theme);
     } catch {
       // Ignore localStorage access errors
     }

@@ -38,7 +38,7 @@ const CTA: React.FC = () => {
           </h2>
           <p className="text-text-primary/80 max-w-reading mx-auto mb-8 relative z-10 text-xl font-light text-pretty">
             Join the teams who've already fixed their AI reliability problems. 
-            Get early access and be the first to ship AI that actually works.
+            Get early access to promtflow.ai and be the first to ship AI that actually works.
           </p>
           <a
             href="#"

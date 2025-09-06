@@ -60,7 +60,7 @@ const Header: React.FC = () => {
             className="flex items-center gap-3 text-2xl font-bold text-text-primary font-heading rounded-md focus:outline-none focus-visible:shadow-focus-glow"
           >
             <Logo />
-            Synergize
+            promtflow.ai
           </a>
           <nav className="hidden md:flex items-center space-x-2">
             <a

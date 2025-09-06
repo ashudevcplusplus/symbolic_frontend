@@ -12,7 +12,7 @@ const faqData: FAQItem[] = [
     question:
       'How is this different from just using better prompts?',
     answer:
-      'Better prompts help, but they\'re still unpredictable. Synergize enforces strict contracts that guarantee your AI will work the same way every time. No more "it worked in testing but broke in production" moments.',
+      'Better prompts help, but they\'re still unpredictable. promtflow.ai enforces strict contracts that guarantee your AI will work the same way every time. No more "it worked in testing but broke in production" moments.',
   },
   {
     question: 'Will this slow down my AI responses?',
@@ -27,7 +27,7 @@ const faqData: FAQItem[] = [
   {
     question: 'Can I try it with my existing AI setup?',
     answer:
-      'Yes! Synergize works with your existing AI models and infrastructure. You can start with a single feature and gradually add more contracts as you see the benefits.',
+      'Yes! promtflow.ai works with your existing AI models and infrastructure. You can start with a single feature and gradually add more contracts as you see the benefits.',
   },
   {
     question: 'What if my AI needs to be creative or flexible?',

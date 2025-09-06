@@ -12,10 +12,10 @@ const Footer: React.FC = () => {
               className="flex items-center gap-3 text-2xl font-bold font-heading text-text-primary mb-4 rounded-md focus:outline-none focus-visible:shadow-focus-glow"
             >
               <Logo />
-              Synergize
+              promtflow.ai
             </a>
             <p className="text-text-muted text-sm font-light">
-              &copy; {new Date().getFullYear()} Synergize Inc. All rights
+              &copy; {new Date().getFullYear()} promtflow.ai Inc. All rights
               reserved.
             </p>
           </div>

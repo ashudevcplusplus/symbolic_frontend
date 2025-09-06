@@ -7,14 +7,14 @@ import { QuoteIcon } from './icons/QuoteIcon';
 const testimonials = [
   {
     quote:
-      "We were losing $50k/month on failed AI requests. Synergize fixed that in the first week. Our AI now works consistently, and our costs dropped by 40%.",
+      "We were losing $50k/month on failed AI requests. promtflow.ai fixed that in the first week. Our AI now works consistently, and our costs dropped by 40%.",
     name: 'Alex Chen',
     title: 'CTO, FinTech Startup',
     avatar: <Avatar1 />,
   },
   {
     quote:
-      'Our customer support AI was randomly failing and making customers angry. Synergize made it bulletproof. Zero AI-related complaints in 3 months.',
+      'Our customer support AI was randomly failing and making customers angry. promtflow.ai made it bulletproof. Zero AI-related complaints in 3 months.',
     name: 'Maria Rodriguez',
     title: 'Head of Engineering, SaaS Company',
     avatar: <Avatar2 />,
@@ -98,7 +98,7 @@ const Testimonials: React.FC = () => {
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
             These aren't hypothetical benefits. These are actual results from teams who stopped 
-            gambling with AI and started using Synergize.
+            gambling with AI and started using promtflow.ai.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">

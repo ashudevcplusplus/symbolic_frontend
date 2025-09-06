@@ -1,4 +1,4 @@
-# Dependency Graph & Topological Sort - Synergize SaaS Todos
+# Dependency Graph & Topological Sort - promtflow.ai Todos
 
 ## 🎯 Overview
 

@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
             >
               <p className="text-lg md:text-xl text-text-secondary max-w-narrow mb-10 font-light leading-body text-pretty">
                 Your AI works perfectly in testing, then breaks in production. 
-                Synergize fixes this by turning unpredictable AI into reliable, 
+                promtflow.ai fixes this by turning unpredictable AI into reliable, 
                 cost-controlled systems your team can actually trust.
               </p>
               <div className="flex flex-col items-start justify-center gap-4 mb-16">

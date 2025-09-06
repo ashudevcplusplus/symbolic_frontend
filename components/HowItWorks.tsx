@@ -8,7 +8,7 @@ const steps = [
     Icon: HowItWorksIcon1,
     title: 'Connect Your AI',
     description:
-      'Plug Synergize into your existing AI models and APIs. No changes to your current setup—just add reliability on top.',
+      'Plug promtflow.ai into your existing AI models and APIs. No changes to your current setup—just add reliability on top.',
   },
   {
     Icon: HowItWorksIcon2,

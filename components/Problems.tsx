@@ -18,7 +18,7 @@ const problems: Problem[] = [
     impact:
       'Lost revenue from failed transactions, angry customers, and your team losing confidence in AI.',
     solution:
-      'Synergize enforces strict contracts that guarantee consistent results. Your AI will work the same way every time, no matter what.',
+      'promtflow.ai enforces strict contracts that guarantee consistent results. Your AI will work the same way every time, no matter what.',
   },
   {
     id: 2,
@@ -90,7 +90,7 @@ const Problems: React.FC = React.memo(() => {
             </h3>
             <p className="text-text-secondary font-light">
               If you're shipping AI to customers, managing AI budgets, or building AI-powered products, 
-              you've probably experienced these exact problems. Synergize fixes them.
+              you've probably experienced these exact problems. promtflow.ai fixes them.
             </p>
           </div>
         </div>
