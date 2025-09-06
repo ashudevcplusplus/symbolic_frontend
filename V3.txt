@@ -1,0 +1,53 @@
+PROBLEM #1
+Title: "Communicate with LLMs efficiently"
+Copy: "Natural language entropy (aliasing, coreference drift) creates instruction variance. Unbounded decoding and schema-free replies yield nondeterministic I/O and brittle post-processing."
+
+Core meaning • Prompt wording ambiguity (aliasing, drift) → the model interprets instructions inconsistently.
+• Sampling strategies or long outputs ("unbounded decoding") magnify variance.
+• Free-form JSON/markdown answers break downstream parsing.
+
+Why users feel this pain • Higher defect rate: same prompt can succeed in test but fail in prod due to subtle aliasing.
+• Ops toil: every new prompt wording requires new brittle regex / JSON fix-ups.
+• Latency and cost both shoot up when retries or long generations occur.
+
+What could be strengthened • Specify what "entropy" concretely means (e.g., synonyms like "employee" vs "staff").
+• Add an example of a post-processing failure (e.g., key missing in JSON, causing 500s).
+• Explicitly name the business impact (lost revenue, compliance risk).
+
+Evidence you can surface • % of prod requests that need a second call because the schema didn't match.
+• Mean / 95-th-percentile tokens per successful answer before and after schema controls.
+• Support tickets tagged "model output invalid" over time.
+
+────────────────────────────────────────────── PROBLEM #2
+Title: "Control cost without degrading quality"
+Copy: "Context bloat, verbose system prompts, and inefficient routing inflate tokens. Lack of attribution hides $/correct-answer and latency tail blowups."
+
+Core meaning • Excess context & verbose prompts → higher token usage.
+• Without good request routing (model choice, instruct vs chat), money is wasted.
+• No granular attribution ⇒ teams can't see dollars per success, so overspend continues.
+
+Why users feel this pain • CFO/FinOps visibility: monthly OpenAI bill unpredictable.
+• Quality/latency trade-offs hidden—teams default to GPT-4 even for trivial lookups.
+• Long system prompts can exceed model limits → truncation silently drops critical info.
+
+What could be strengthened • Quantify "context bloat" (e.g., "average request now 7 KB; 80 % is boilerplate").
+• Distinguish token cost from tail-latency cost; both hit user SLAs differently.
+• Note organizational blockers: approvals required to down-route to lower-tier model.
+
+Evidence you can surface • Histogram of tokens/request before vs after prompt compression.
+• $/successful answer by model class (GPT-3.5 vs GPT-4) and use-case.
+• P95 latency vs prompt length charts to show tail blowups.
+
+────────────────────────────────────────────── High-level gaps across both problems
+
+• Missing 3-rd pain point: maintaining deterministic behaviour across model/version upgrades.
+• No mention of security / PII redaction risk in free-form generations.
+• Could link each pain directly to capabilities your product will ship (e.g., "contract-based prompts", "automatic context pruning", "usage attribution dashboards").
+
+────────────────────────────────────────────── Next steps you might consider
+
+Tighten copy so non-experts instantly grasp the pain (avoid niche jargon like "aliasing").
+Add one-sentence "impact" line under each problem summarizing cost/time lost today.
+Supply real-world metric or anecdote (even anonymized) to build credibility.
+If you foresee additional problem buckets (governance, reliability, security), surface them now so the narrative feels complete.
+Let me know if you'd like drafts of revised wording or associated visuals/metrics!
