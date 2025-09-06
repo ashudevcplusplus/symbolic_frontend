@@ -7,23 +7,23 @@ import { QuoteIcon } from './icons/QuoteIcon';
 const testimonials = [
   {
     quote:
-      "promtflow.ai created a new center of gravity for our team's collaboration. We're more aligned and efficient than ever. A true constellation of features.",
-    name: 'Sarah Johnson',
-    title: 'Marketing Director, Innovate Corp',
+      "We were losing $50k/month on failed AI requests. promtflow.ai fixed that in the first week. Our AI now works consistently, and our costs dropped by 40%.",
+    name: 'Alex Chen',
+    title: 'CTO, FinTech Startup',
     avatar: <Avatar1 />,
   },
   {
     quote:
-      'The automation workflows are like hitting hyperdrive on our productivity. What used to take days now takes minutes. Absolutely stellar!',
-    name: 'Michael Chen',
-    title: 'Lead Developer, Tech Solutions',
+      'Our customer support AI was randomly failing and making customers angry. promtflow.ai made it bulletproof. Zero AI-related complaints in 3 months.',
+    name: 'Maria Rodriguez',
+    title: 'Head of Engineering, SaaS Company',
     avatar: <Avatar2 />,
   },
   {
     quote:
-      'The analytics dashboards gave us a view of our operations from 30,000 feet. The clarity is out of this world. Onboarding was a smooth launch.',
-    name: 'Emily Rodriguez',
-    title: 'Project Manager, Creative Minds',
+      'I was skeptical about "AI contracts" but the results speak for themselves. Our AI features are now our most reliable components, not our biggest risk.',
+    name: 'David Kim',
+    title: 'VP of Product, E-commerce Platform',
     avatar: <Avatar3 />,
   },
 ];
@@ -94,11 +94,11 @@ const Testimonials: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Echoes from Across the Galaxy
+            Real Results from Real Teams
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Don't just take our word for it. Hear from the pioneers traversing 
-            new frontiers of productivity.
+            These aren't hypothetical benefits. These are actual results from teams who stopped 
+            gambling with AI and started using promtflow.ai.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">

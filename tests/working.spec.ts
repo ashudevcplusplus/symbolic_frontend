@@ -8,7 +8,7 @@ test.describe('Working E2E Tests', () => {
     await expect(page).toHaveTitle(/promtflow.ai/);
     
     // Check main heading exists
-    await expect(page.getByRole('heading', { name: /Precision for Mission-Critical AI/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Stop Shipping AI That Fails/ })).toBeVisible();
   });
 
   test('newsletter form validation works', async ({ page }) => {
@@ -41,7 +41,7 @@ test.describe('Working E2E Tests', () => {
     await page.goto('/');
     
     // Check if main heading is visible on mobile
-    await expect(page.getByRole('heading', { name: /Precision for Mission-Critical AI/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Stop Shipping AI That Fails/ })).toBeVisible();
     
     // Check if mobile menu button exists
     await expect(page.getByRole('button', { name: /Open menu/ })).toBeVisible();
@@ -64,16 +64,16 @@ test.describe('Working E2E Tests', () => {
     // Test desktop
     await page.setViewportSize({ width: 1200, height: 800 });
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: /Precision for Mission-Critical AI/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Stop Shipping AI That Fails/ })).toBeVisible();
     
     // Test tablet
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.reload();
-    await expect(page.getByRole('heading', { name: /Precision for Mission-Critical AI/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Stop Shipping AI That Fails/ })).toBeVisible();
     
     // Test mobile
     await page.setViewportSize({ width: 375, height: 667 });
     await page.reload();
-    await expect(page.getByRole('heading', { name: /Precision for Mission-Critical AI/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Stop Shipping AI That Fails/ })).toBeVisible();
   });
 });

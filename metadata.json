@@ -1,5 +1,5 @@
 {
   "name": "promtflow.ai",
-  "description": "Replace ambiguous prompts with typed, executable contracts. Deterministic, auditable, and cost‑controlled outcomes for high‑stakes systems.",
+  "description": "Stop shipping AI that fails in production. promtflow.ai turns unpredictable AI into reliable, cost-controlled systems that your team can trust.",
   "requestFramePermissions": []
 }

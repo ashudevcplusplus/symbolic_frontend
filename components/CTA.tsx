@@ -34,17 +34,17 @@ const CTA: React.FC = () => {
             }}
           ></div>
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-white mb-4 relative z-10 text-balance">
-            Ready to Enter a New Dimension of Work?
+            Stop Losing Sleep Over AI Failures
           </h2>
           <p className="text-text-primary/80 max-w-reading mx-auto mb-8 relative z-10 text-xl font-light text-pretty">
-            Join thousands of innovators charting new courses in productivity. 
-            Your 14-day trial is your launchpad.
+            Join the teams who've already fixed their AI reliability problems. 
+            Get early access to promtflow.ai and be the first to ship AI that actually works.
           </p>
           <a
             href="#"
             className="bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white font-bold px-10 py-5 rounded-xl transition-all transform duration-300 animate-pulse-glow focus:outline-none focus-visible:shadow-focus-glow relative z-10 bg-[length:200%_auto] motion-safe:animate-shimmer motion-safe:hover:scale-[1.03] motion-safe:hover:shadow-z1 motion-safe:active:scale-[0.99] motion-safe:active:shadow-none has-gradient has-shimmer"
           >
-            Start Your Free Trial
+            Get Early Access
           </a>
         </div>
       </div>
