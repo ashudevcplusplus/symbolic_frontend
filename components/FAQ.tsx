@@ -3,29 +3,29 @@ import { ChevronDownIcon } from './icons/ChevronDownIcon';
 
 const faqData = [
   {
-    question: 'What kind of data can I integrate with Synergize?',
+    question: 'What makes this different from existing prompt management tools?',
     answer:
-      'Synergize supports a wide range of data sources, including popular cloud services, databases, and APIs. You can connect everything from your CRM and project management tools to custom internal systems to create a unified data constellation.',
+      'We focus on deterministic contracts, cost discipline, and proving coverage rather than just versioning prompts. Built for high-stakes environments where "probably correct" isn\'t enough—we enforce executable contracts at runtime with typed I/O, budgets, guardrails, and continuous evaluation.',
   },
   {
-    question: 'Is Synergize secure for sensitive enterprise data?',
+    question: 'Who should join the waitlist?',
     answer:
-      'Absolutely. Security is our prime directive. We employ end-to-end encryption, role-based access controls, and regular security audits to ensure your data is protected with enterprise-grade security protocols.',
+      'Researchers needing low-variance, reproducible runs; high-precision teams in fintech, health, or safety-critical domains who must bound failure modes and prove coverage; and AI platform owners who need cost control, governance, and audit trails.',
   },
   {
-    question: 'How do the AI automation agents work?',
+    question: 'When will this be available?',
     answer:
-      'Our AI agents are easy to configure through a no-code visual interface. You can define triggers, actions, and decision logic to automate complex workflows. They operate 24/7 to execute tasks, analyze data, and even generate reports.',
+      'We\'re working with select organizations to shape the standard. Join the waitlist to be notified when we\'re ready for broader access—we\'re focusing on getting the foundation right before scaling.',
   },
   {
-    question: 'Can I customize the analytics dashboards?',
+    question: 'How does contract-based communication work?',
     answer:
-      'Yes, the dashboards are fully customizable. You can create your own views, charts, and reports by dragging and dropping widgets. Tailor your command center to focus on the metrics that matter most to your mission.',
+      'Instead of free-form natural language prompts that can be interpreted differently each time, you define typed contracts with specific input/output schemas, validation rules, and execution constraints. The AI must satisfy these contracts, eliminating ambiguity and ensuring deterministic results.',
   },
   {
-    question: 'What is your uptime and reliability SLA?',
+    question: 'What kind of cost control and attribution do you provide?',
     answer:
-      'We guarantee a 99.9% uptime as part of our SLA for all Galaxy plan customers. Our infrastructure is built on a distributed, fault-tolerant architecture to ensure your operations are always online.',
+      'We provide granular cost attribution down to individual requests, per-step budgets, automatic routing based on cost targets, and detailed analytics showing $/correct-answer ratios. You can set policies that prevent overspending while maintaining quality.',
   },
 ];
 
@@ -81,11 +81,10 @@ const FAQ: React.FC = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Frequently Charted Questions
+            Frequently Asked Questions
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Navigating the cosmos of information. If your question isn't here,
-            our mission control is ready to assist.
+            Everything you need to know about our platform for precision AI communication.
           </p>
         </div>
         <div className="max-w-reading mx-auto">

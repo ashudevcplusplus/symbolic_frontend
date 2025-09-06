@@ -23,7 +23,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ action = '#' }) => {
       console.log('Newsletter signup:', email);
 
       setStatus('success');
-      setMessage('Thanks for subscribing! Check your email for confirmation.');
+      setMessage('Thanks for joining! We\'ll notify you when we\'re ready for broader access.');
       setEmail('');
     } catch (error) {
       setStatus('error');
@@ -44,10 +44,10 @@ const Newsletter: React.FC<NewsletterProps> = ({ action = '#' }) => {
             }}
           >
             <h3 className="text-2xl font-bold text-text-primary mb-4">
-              Stay Updated
+              Join the Waitlist
             </h3>
             <p className="text-text-secondary mb-8">
-              Get the latest updates on AI innovation and product releases.
+              Be among the first to experience the precision layer for mission-critical AI. Enter your email address below.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -67,7 +67,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ action = '#' }) => {
                   disabled={status === 'submitting' || !email.trim()}
                   className="px-6 py-3 bg-accent-primary text-white font-semibold rounded-md hover:bg-accent-mid focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
                 >
-                  {status === 'submitting' ? 'Subscribing...' : 'Subscribe'}
+                  {status === 'submitting' ? 'Joining...' : 'Join Waitlist'}
                 </button>
               </div>
 

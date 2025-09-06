@@ -20,6 +20,7 @@ const Footer = lazy(() => import('../components/Footer'));
 const ChangelogTicker = lazy(() => import('../components/ChangelogTicker'));
 const CookieConsent = lazy(() => import('../components/CookieConsent'));
 const ProgressBackToTop = lazy(() => import('../components/ProgressBackToTop'));
+const Problems = lazy(() => import('../components/Problems'));
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -89,6 +90,11 @@ const LongLandingPage: React.FC = () => {
         {/* Hero Section */}
         <Suspense fallback={<LoadingFallback />}>
           <Hero />
+        </Suspense>
+
+        {/* Problems Section */}
+        <Suspense fallback={<LoadingFallback />}>
+          <Problems />
         </Suspense>
 
         {/* Social Proof */}
