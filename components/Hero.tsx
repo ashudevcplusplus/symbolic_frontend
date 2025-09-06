@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
           <div className="text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading leading-heading tracking-display mb-6 text-balance">
               <AnimatedTitle
-                text="Precision for Mission-Critical AI."
+                text="Stop Shipping AI That Fails."
                 isVisible={isIgnited}
               />
             </h1>
@@ -64,9 +64,9 @@ const Hero: React.FC = () => {
               className={`transition-all duration-400 ease-in-out ${isIgnited ? 'opacity-100 delay-500' : 'opacity-0'}`}
             >
               <p className="text-lg md:text-xl text-text-secondary max-w-narrow mb-10 font-light leading-body text-pretty">
-                Replace ambiguous prompts with typed, executable contracts.
-                Deterministic, auditable, and cost-controlled outcomes for
-                high-stakes systems.
+                Your AI works perfectly in testing, then breaks in production. 
+                Synergize fixes this by turning unpredictable AI into reliable, 
+                cost-controlled systems your team can actually trust.
               </p>
               <div className="flex flex-col items-start justify-center gap-4 mb-16">
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -74,19 +74,19 @@ const Hero: React.FC = () => {
                     href="#"
                     className="has-gradient has-shimmer bg-gradient-to-r from-brand-gradient-from via-accent-mid to-brand-gradient-to text-white font-bold px-10 py-5 rounded-[var(--radius-md)] transition-all transform duration-300 focus:outline-none focus-visible:shadow-focus-glow bg-[length:200%_auto] motion-safe:animate-shimmer motion-safe:hover:scale-[1.03] motion-safe:hover:shadow-z2 motion-safe:active:scale-[0.99] motion-safe:active:shadow-none shadow-z2 [box-shadow:_inset_0_0_0_1px_hsl(var(--surface-3)/.6)]"
                   >
-                    Join Waitlist
+                    Fix My AI Now
                   </a>
                   <a
-                    href="#"
+                    href="#problems"
                     className="bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)] text-text-secondary font-bold px-10 py-5 rounded-[var(--radius-md)] transition-all transform duration-300 focus:outline-none focus-visible:shadow-focus-glow hover:shadow-glow-accent [box-shadow:_inset_0_0_0_1px_hsl(var(--surface-3)/.6)] hover:[box-shadow:_inset_0_0_0_1px_hsl(var(--accent-primary)/.35),0_0_12px_hsl(var(--accent-primary)/.35)] hover:text-text-primary"
                   >
-                    Read Problem →
+                    See How It Works →
                   </a>
                 </div>
                 <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-x-6 gap-y-2 text-sm text-text-muted font-light">
                   <div className="flex items-center gap-2">
                     <SignalIcon className="w-4 h-4 text-positive" />
-                    <span>Deterministic I/O</span>
+                    <span>Reliable Results</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <ClockIcon className="w-4 h-4 text-info" />
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <PlugIcon className="w-4 h-4 text-accent-mid" />
-                    <span>Contract-Based</span>
+                    <span>Production Ready</span>
                   </div>
                 </div>
               </div>
