@@ -56,7 +56,7 @@ const ThemeSwitcher: React.FC = () => {
     <div ref={dropdownRef} className="relative">
       <button
         onClick={handleToggle}
-        className="flex items-center justify-center w-12 h-12 rounded-[12px] bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)] transition-colors focus:outline-none focus-visible:shadow-focus-glow u-stroke-1 hover:shadow-z1"
+        className="flex items-center justify-center w-12 h-12 rounded-xl bg-[hsl(var(--surface-1)/.65)] backdrop-blur-[var(--glass-blur)] transition-colors focus:outline-none focus-visible:shadow-focus-glow u-stroke-1 hover:shadow-z1"
         aria-label={`Change theme. Current theme: ${currentThemeConfig.label}`}
         aria-haspopup="true"
         aria-expanded={isOpen}
@@ -65,7 +65,7 @@ const ThemeSwitcher: React.FC = () => {
       </button>
       {isOpen && (
         <div
-          className="absolute top-full right-0 mt-2 w-48 rounded-[12px] py-1 z-50 transition-opacity motion-safe:transform-gpu u-stroke-1"
+          className="absolute top-full right-0 mt-2 w-48 rounded-xl py-1 z-50 transition-opacity motion-safe:transform-gpu u-stroke-1"
           style={{
             willChange: 'opacity, transform',
             background: 'var(--glass-bg)',
@@ -82,7 +82,7 @@ const ThemeSwitcher: React.FC = () => {
                   setTheme(t);
                   setIsOpen(false);
                 }}
-                className={`flex items-center gap-3 w-full px-4 py-2 text-left text-sm transition-colors rounded-[12px] ${
+                className={`flex items-center gap-3 w-full px-4 py-2 text-left text-sm transition-colors rounded-xl ${
                   theme === t
                     ? 'text-accent-primary shadow-[0_0_0_2px_var(--accent-ring)]'
                     : 'text-text-secondary hover:bg-[hsl(var(--accent-primary)/.08)] hover:text-text-primary'

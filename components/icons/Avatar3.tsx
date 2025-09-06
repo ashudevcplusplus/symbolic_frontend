@@ -22,7 +22,7 @@ export const Avatar3: React.FC = () => (
         cy="50"
         r="48"
         stroke="#38bdf8"
-        strokeWidth="2"
+        strokeWidth="1.5"
         fill="none"
       />
       <text

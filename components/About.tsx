@@ -143,7 +143,7 @@ const About: React.FC = () => {
 
         {/* Timeline: hairline spine 1px, nodes 12px, year labels 14–16px, step gap 5γ - PAGE ε specification */}
         <div className="mb-20">
-          <h2 className="text-3xl font-extrabold font-heading text-text-primary text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary text-center mb-16">
             Our Journey
           </h2>
 
@@ -190,7 +190,7 @@ const About: React.FC = () => {
 
         {/* Values row: 3 cards, emoji-free, icon ψ=1.5px, titles ≤4 words - PAGE ε specification */}
         <div className="mb-20">
-          <h2 className="text-3xl font-extrabold font-heading text-text-primary text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary text-center mb-16">
             Our Values
           </h2>
 
@@ -223,7 +223,7 @@ const About: React.FC = () => {
 
         {/* Team mosaic: 3–4 across at lg, avatar ⌀=96, name 16px / role 14px muted - PAGE ε specification */}
         <div>
-          <h2 className="text-3xl font-extrabold font-heading text-text-primary text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary text-center mb-16">
             Meet Our Team
           </h2>
 

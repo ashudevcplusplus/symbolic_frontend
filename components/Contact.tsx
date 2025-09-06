@@ -225,7 +225,7 @@ const Contact: React.FC = () => {
               <div className="lg:col-span-2">
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-accent-primary hover:bg-accent-primary/90 text-white font-bold rounded-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-primary/40 focus:shadow-focus-glow shadow-lg"
+                  className="w-full px-10 py-5 bg-accent-primary hover:bg-accent-primary/90 text-white font-bold rounded-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-primary/40 focus:shadow-focus-glow shadow-lg"
                 >
                   Send Message
                 </button>
