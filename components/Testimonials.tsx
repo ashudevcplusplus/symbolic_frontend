@@ -40,7 +40,7 @@ const TestimonialCard: React.FC<{
     >
       <QuoteIcon className="absolute top-6 left-6 w-12 h-12 text-surface-3" />
       <p className="text-text-primary italic font-light mb-6 z-10 relative pt-10 text-lg text-pretty">
-        "{testimonial.quote}"
+        &ldquo;{testimonial.quote}&rdquo;
       </p>
       <div className="flex items-center z-10 relative">
         <div className="w-16 h-16 mr-4 flex-shrink-0">{testimonial.avatar}</div>
@@ -97,7 +97,7 @@ const Testimonials: React.FC = () => {
             Echoes from Across the Galaxy
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Don't just take our word for it. Hear from the pioneers traversing
+            Don&apos;t just take our word for it. Hear from the pioneers traversing
             new frontiers of productivity.
           </p>
         </div>

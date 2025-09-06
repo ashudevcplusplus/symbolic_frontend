@@ -152,7 +152,7 @@ const Pricing: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Pricing That's Not Astronomical
+            Pricing That&apos;s Not Astronomical
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
             Choose your orbit. No hidden fees, no asteroid belts of complexity.

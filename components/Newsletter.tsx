@@ -4,7 +4,7 @@ interface NewsletterProps {
   action?: string;
 }
 
-const Newsletter: React.FC<NewsletterProps> = ({ action = '#' }) => {
+const Newsletter: React.FC<NewsletterProps> = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<
     'idle' | 'submitting' | 'success' | 'error'
@@ -27,7 +27,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ action = '#' }) => {
         "Thanks for joining! We'll notify you when we're ready for broader access."
       );
       setEmail('');
-    } catch (error) {
+    } catch {
       setStatus('error');
       setMessage('Something went wrong. Please try again.');
     }
