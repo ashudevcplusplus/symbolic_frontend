@@ -196,12 +196,18 @@ const Features: React.FC = () => {
                 ref={(el) => {
                   featureRefs.current[index] = el;
                 }}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-orbital p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-orbital p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent hover:scale-110 active:scale-95"
+                aria-label={`Learn more about ${feature.title}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setActiveFeature(feature);
+                  }
+                }}
                 style={{ ...feature.position, willChange: 'transform' }}
                 onMouseEnter={() => setHoveredFeature(feature.id as FeatureId)}
                 onMouseLeave={() => setHoveredFeature(null)}
                 onClick={() => setActiveFeature(feature)}
-                aria-label={`Select feature: ${feature.title}`}
               >
                 <div
                   className={`relative flex flex-col items-center cursor-pointer group`}

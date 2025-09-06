@@ -10,10 +10,40 @@ const Newsletter: React.FC<NewsletterProps> = () => {
     'idle' | 'submitting' | 'success' | 'error'
   >('idle');
   const [message, setMessage] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    
+    if (value && !validateEmail(value)) {
+      setEmailError('Please enter a valid email address');
+    } else {
+      setEmailError('');
+    }
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
+    if (!email.trim()) {
+      setEmailError('Email is required');
+      return;
+    }
+    
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address');
+      return;
+    }
+
     setStatus('submitting');
+    setEmailError('');
+    setMessage('');
 
     try {
       // Simulate API call
@@ -58,12 +88,18 @@ const Newsletter: React.FC<NewsletterProps> = () => {
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                   placeholder="Enter your email"
                   required
                   disabled={status === 'submitting'}
-                  className="flex-1 px-4 py-3 rounded-md border border-surface-2 bg-surface-1 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                  className={`flex-1 px-4 py-3 rounded-md border bg-surface-1 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 ${
+                    emailError 
+                      ? 'border-danger focus:ring-danger' 
+                      : 'border-surface-2 focus:ring-accent-primary'
+                  }`}
                   aria-label="Email address"
+                  aria-invalid={emailError ? 'true' : 'false'}
+                  aria-describedby={emailError ? 'email-error' : undefined}
                 />
                 <button
                   type="submit"
@@ -73,6 +109,12 @@ const Newsletter: React.FC<NewsletterProps> = () => {
                   {status === 'submitting' ? 'Joining...' : 'Join Waitlist'}
                 </button>
               </div>
+
+              {emailError && (
+                <p id="email-error" className="text-sm text-danger">
+                  {emailError}
+                </p>
+              )}
 
               {message && (
                 <p
