@@ -1,21 +1,5 @@
-import React, { useState, useEffect, memo } from 'react';
-
-const usePrefersReducedMotion = () => {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
-    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  );
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const handleChange = () => {
-      setPrefersReducedMotion(mediaQuery.matches);
-    };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => {
-      mediaQuery.removeEventListener('change', handleChange);
-    };
-  }, []);
-  return prefersReducedMotion;
-};
+import React, { useState, useEffect, memo, useRef } from 'react';
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 const InteractiveGlow: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: -2000, y: -2000 });

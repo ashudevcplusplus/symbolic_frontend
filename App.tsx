@@ -24,7 +24,6 @@ const App: React.FC = () => {
       );
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    update();
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.documentElement.style.removeProperty('--scroll-y');
