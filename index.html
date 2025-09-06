@@ -42,9 +42,9 @@
         --surface-1-augmented: 202 85% 58% / 0.04;
         --surface-2: 220 13% 12%;
         --surface-3: 220 13% 16%;
-        --text-primary: 220 20% 96%;
-        --text-secondary: 220 14% 80%;
-        --text-muted: 220 12% 60%;
+        --text-primary: 220 20% 98%;
+        --text-secondary: 220 14% 85%;
+        --text-muted: 220 12% 70%;
         --brand-primary: 202 85% 58%;
         --accent-primary: 187 85% 55%;
         --accent-mid: 265 92% 66%;
@@ -113,9 +113,9 @@
         --surface-1-augmented: 202 85% 58% / 0.05;
         --surface-2: 220 16% 90%;
         --surface-3: 220 16% 85%;
-        --text-primary: 220 13% 18%;
-        --text-secondary: 220 10% 35%;
-        --text-muted: 220 8% 50%;
+        --text-primary: 220 13% 15%;
+        --text-secondary: 220 10% 30%;
+        --text-muted: 220 8% 45%;
         --grain-opacity: .05;
         --star-primary: #CFFAFE;
         --star-secondary: #F5F3FF;
@@ -127,9 +127,9 @@
         --surface-1-augmented: 202 85% 58% / 0.04;
         --surface-2: 220 13% 12%;
         --surface-3: 220 13% 16%;
-        --text-primary: 220 20% 96%;
-        --text-secondary: 220 14% 80%;
-        --text-muted: 220 12% 60%;
+        --text-primary: 220 20% 98%;
+        --text-secondary: 220 14% 85%;
+        --text-muted: 220 12% 70%;
         --grain-opacity: .07;
         --star-primary: #CFFAFE;
         --star-secondary: #F5F3FF;
@@ -141,9 +141,9 @@
         --surface-1-augmented: 202 85% 58% / 0.05;
         --surface-2: 0 0% 12%;
         --surface-3: 0 0% 16%;
-        --text-primary: 0 0% 98%;
-        --text-secondary: 0 0% 80%;
-        --text-muted: 0 0% 60%;
+        --text-primary: 0 0% 100%;
+        --text-secondary: 0 0% 85%;
+        --text-muted: 0 0% 70%;
         --grain-opacity: .06;
         --star-primary: #CFFAFE;
         --star-secondary: #F5F3FF;
@@ -155,9 +155,9 @@
         --surface-1-augmented: 202 85% 58% / 0.06;
         --surface-2: 260 20% 15%;
         --surface-3: 260 20% 20%;
-        --text-primary: 260 20% 97%;
-        --text-secondary: 260 15% 82%;
-        --text-muted: 260 12% 65%;
+        --text-primary: 260 20% 98%;
+        --text-secondary: 260 15% 85%;
+        --text-muted: 260 12% 70%;
         --brand-gradient-from: 180 85% 58%;
         --brand-gradient-to: 310 81% 60%;
         --grain-opacity: .06;
@@ -171,9 +171,9 @@
         --surface-1-augmented: 320 85% 60% / 0.05;
         --surface-2: 245 16% 20%;
         --surface-3: 245 16% 25%;
-        --text-primary: 30 20% 96%;
-        --text-secondary: 30 14% 80%;
-        --text-muted: 30 12% 65%;
+        --text-primary: 30 20% 98%;
+        --text-secondary: 30 14% 85%;
+        --text-muted: 30 12% 70%;
         --brand-primary: 320 85% 60%;
         --accent-primary: 30 90% 60%;
         --accent-mid: 300 80% 70%;
@@ -191,8 +191,8 @@
         --surface-2: 0 0% 15%;
         --surface-3: 0 0% 20%;
         --text-primary: 0 0% 100%;
-        --text-secondary: 0 0% 90%;
-        --text-muted: 0 0% 70%;
+        --text-secondary: 0 0% 95%;
+        --text-muted: 0 0% 80%;
         --brand-primary: 202 100% 50%;
         --accent-primary: 187 100% 50%;
         --accent-mid: 265 100% 55%;
@@ -217,6 +217,10 @@
         transition:
           background-color 0.2s ease-in-out,
           color 0.2s ease-in-out;
+        /* Improve text rendering across devices */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
       }
 
       /* Reduced motion support - reduced-motion = opacity + micro-scale <1.01, no parallax */
@@ -255,6 +259,28 @@
       .u-glass { background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur)); }
       .u-text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
       .u-halo { box-shadow: 0 0 48px hsl(var(--accent-primary) / .25); }
+      
+      /* Text visibility improvements */
+      .u-text-enhanced {
+        text-shadow: 0 1px 2px hsl(var(--surface-0) / 0.1);
+      }
+      .u-text-enhanced-dark {
+        text-shadow: 0 1px 2px hsl(var(--surface-0) / 0.3);
+      }
+      
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        :root {
+          --text-primary: 0 0% 100%;
+          --text-secondary: 0 0% 90%;
+          --text-muted: 0 0% 80%;
+        }
+        [data-theme='dawn'] {
+          --text-primary: 0 0% 0%;
+          --text-secondary: 0 0% 20%;
+          --text-muted: 0 0% 40%;
+        }
+      }
     </style>
     <script>
       // IIFE to prevent FOUC
