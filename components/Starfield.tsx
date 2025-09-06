@@ -99,7 +99,7 @@ const Starfield: React.FC = () => {
           '--angle': `${angle}deg`,
           animationDuration: `${Math.random() * 2 + 1}s`,
           animationDelay: `${Math.random() * 10 + 2}s`,
-        },
+        } as React.CSSProperties,
       });
     }
 
