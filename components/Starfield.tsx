@@ -3,7 +3,7 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 type CelestialObject = {
   id: string;
-  style: React.CSSProperties;
+  style: React.CSSProperties & { '--angle'?: string };
 };
 
 const Starfield: React.FC = () => {

@@ -41,7 +41,7 @@ const getInitialTheme = (): Theme => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dusk';
     }
-  } catch (e) {
+  } catch {
     // Ignore localStorage access errors
   }
   return 'dawn';
@@ -56,7 +56,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     document.documentElement.setAttribute('data-theme', theme);
     try {
       localStorage.setItem('synergize-theme', theme);
-    } catch (e) {
+    } catch {
       // Ignore localStorage access errors
     }
   }, [theme]);

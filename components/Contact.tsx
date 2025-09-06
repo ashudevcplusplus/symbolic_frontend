@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { FeatureIcon1, FeatureIcon2, FeatureIcon3 } from './icons/FeatureIcon1';
+import { FeatureIcon1 } from './icons/FeatureIcon1';
+import { FeatureIcon2 } from './icons/FeatureIcon2';
+import { FeatureIcon3 } from './icons/FeatureIcon3';
 
 const contactCards = [
   {

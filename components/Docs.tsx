@@ -258,10 +258,10 @@ const result = await client.process({
                           className="block py-2 px-3 text-sm text-text-secondary hover:text-accent-primary hover:bg-accent-primary/5 rounded-md transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-brand-primary/40 focus:shadow-focus-glow"
                           style={{ textDecoration: 'none' }}
                           onMouseEnter={(e) =>
-                            (e.target.style.textDecoration = 'underline')
+                            ((e.target as HTMLElement).style.textDecoration = 'underline')
                           }
                           onMouseLeave={(e) =>
-                            (e.target.style.textDecoration = 'none')
+                            ((e.target as HTMLElement).style.textDecoration = 'none')
                           }
                         >
                           {item}

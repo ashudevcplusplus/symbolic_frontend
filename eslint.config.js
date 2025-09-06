@@ -17,6 +17,11 @@ export default [
         ecmaFeatures: { jsx: true },
       },
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
   },
   ...tseslint.configs.recommended,
   eslintConfigPrettier,
