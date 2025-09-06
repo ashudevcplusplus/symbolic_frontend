@@ -3,9 +3,21 @@ import { FeatureIcon1 } from './icons/FeatureIcon1';
 import { FeatureIcon2 } from './icons/FeatureIcon2';
 import { FeatureIcon3 } from './icons/FeatureIcon3';
 
-const features = [
+// Type definitions for better type safety
+type FeatureId = 1 | 2 | 3;
+
+interface Feature {
+  id: FeatureId;
+  IconComponent: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  position: { top: string; left: string };
+  depth: number;
+}
+
+const features: Feature[] = [
   {
-    id: 1,
+    id: 1 as FeatureId,
     IconComponent: FeatureIcon1,
     title: 'Contract-Based Communication',
     description:
@@ -14,7 +26,7 @@ const features = [
     depth: 0.8, // Closest
   },
   {
-    id: 2,
+    id: 2 as FeatureId,
     IconComponent: FeatureIcon2,
     title: 'Intelligent Cost Control',
     description:
@@ -23,7 +35,7 @@ const features = [
     depth: 0.4, // Farthest
   },
   {
-    id: 3,
+    id: 3 as FeatureId,
     IconComponent: FeatureIcon3,
     title: 'Proven Determinism',
     description:
@@ -34,8 +46,8 @@ const features = [
 ];
 
 const Features: React.FC = () => {
-  const [activeFeature, setActiveFeature] = useState(features[0]);
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const [activeFeature, setActiveFeature] = useState<Feature>(features[0]);
+  const [hoveredFeature, setHoveredFeature] = useState<FeatureId | null>(null);
 
   const featureRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -89,7 +101,8 @@ const Features: React.FC = () => {
             The Precision Layer for Mission-Critical AI
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Language is fuzzy; contracts are precise. Built for teams that demand determinism, auditability, and cost discipline.
+            Language is fuzzy; contracts are precise. Built for teams that
+            demand determinism, auditability, and cost discipline.
           </p>
         </div>
         <div className="grid lg:grid-cols-3 gap-16 items-center">
@@ -185,7 +198,7 @@ const Features: React.FC = () => {
                 }}
                 className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-orbital p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 style={{ ...feature.position, willChange: 'transform' }}
-                onMouseEnter={() => setHoveredFeature(feature.id)}
+                onMouseEnter={() => setHoveredFeature(feature.id as FeatureId)}
                 onMouseLeave={() => setHoveredFeature(null)}
                 onClick={() => setActiveFeature(feature)}
                 aria-label={`Select feature: ${feature.title}`}

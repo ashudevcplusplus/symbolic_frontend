@@ -3,6 +3,7 @@ import { HeroIllustration } from './HeroIllustration';
 import { SignalIcon } from './icons/SignalIcon';
 import { ClockIcon } from './icons/ClockIcon';
 import { PlugIcon } from './icons/PlugIcon';
+import { ANIMATION_DELAYS } from '../src/constants';
 
 const AnimatedTitle: React.FC<{ text: string; isVisible: boolean }> = ({
   text,
@@ -33,7 +34,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsIgnited(true);
-    }, 100);
+    }, ANIMATION_DELAYS.HERO_IGNITION);
     return () => clearTimeout(timer);
   }, []);
 
@@ -63,7 +64,9 @@ const Hero: React.FC = () => {
               className={`transition-all duration-400 ease-in-out ${isIgnited ? 'opacity-100 delay-500' : 'opacity-0'}`}
             >
               <p className="text-lg md:text-xl text-text-secondary max-w-narrow mb-10 font-light leading-body text-pretty">
-                Replace ambiguous prompts with typed, executable contracts. Deterministic, auditable, and cost-controlled outcomes for high-stakes systems.
+                Replace ambiguous prompts with typed, executable contracts.
+                Deterministic, auditable, and cost-controlled outcomes for
+                high-stakes systems.
               </p>
               <div className="flex flex-col items-start justify-center gap-4 mb-16">
                 <div className="flex flex-col sm:flex-row justify-center gap-4">

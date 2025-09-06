@@ -23,7 +23,9 @@ const Newsletter: React.FC<NewsletterProps> = ({ action = '#' }) => {
       console.log('Newsletter signup:', email);
 
       setStatus('success');
-      setMessage('Thanks for joining! We\'ll notify you when we\'re ready for broader access.');
+      setMessage(
+        "Thanks for joining! We'll notify you when we're ready for broader access."
+      );
       setEmail('');
     } catch (error) {
       setStatus('error');
@@ -47,7 +49,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ action = '#' }) => {
               Join the Waitlist
             </h3>
             <p className="text-text-secondary mb-8">
-              Be among the first to experience the precision layer for mission-critical AI. Enter your email address below.
+              Be among the first to experience the precision layer for
+              mission-critical AI. Enter your email address below.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">

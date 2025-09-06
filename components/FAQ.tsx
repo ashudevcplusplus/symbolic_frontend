@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { ChevronDownIcon } from './icons/ChevronDownIcon';
 
-const faqData = [
+// Type definitions for better type safety
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqData: FAQItem[] = [
   {
-    question: 'What makes this different from existing prompt management tools?',
+    question:
+      'What makes this different from existing prompt management tools?',
     answer:
       'We focus on deterministic contracts, cost discipline, and proving coverage rather than just versioning prompts. Built for high-stakes environments where "probably correct" isn\'t enough—we enforce executable contracts at runtime with typed I/O, budgets, guardrails, and continuous evaluation.',
   },
@@ -15,7 +22,7 @@ const faqData = [
   {
     question: 'When will this be available?',
     answer:
-      'We\'re working with select organizations to shape the standard. Join the waitlist to be notified when we\'re ready for broader access—we\'re focusing on getting the foundation right before scaling.',
+      "We're working with select organizations to shape the standard. Join the waitlist to be notified when we're ready for broader access—we're focusing on getting the foundation right before scaling.",
   },
   {
     question: 'How does contract-based communication work?',
@@ -84,13 +91,14 @@ const FAQ: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Everything you need to know about our platform for precision AI communication.
+            Everything you need to know about our platform for precision AI
+            communication.
           </p>
         </div>
         <div className="max-w-reading mx-auto">
           {faqData.map((item, index) => (
             <FaqItem
-              key={index}
+              key={`faq-${index}`}
               item={item}
               isOpen={openIndex === index}
               onClick={() => handleClick(index)}

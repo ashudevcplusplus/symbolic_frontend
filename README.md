@@ -17,11 +17,11 @@ Prerequisites: Node.js 18+ and a package manager (npm, pnpm, or yarn).
 
 2. Configure environment
    Create a file named `.env.local` in the project root and set your Gemini key:
-   
+
    ```bash
    GEMINI_API_KEY=your_key_here
    ```
-   
+
    This is injected at build/dev time via Vite and available as `process.env.GEMINI_API_KEY`.
 
 3. Run the dev server
@@ -38,6 +38,7 @@ Defined in `package.json`:
 - `format`: Prettier format for code and docs
 
 Example with pnpm:
+
 ```bash
 pnpm dev
 pnpm build
@@ -53,6 +54,7 @@ pnpm preview
 - PWA + compression plugins configured for production
 
 Key entry points:
+
 - `index.html` sets up Tailwind CDN and theme tokens
 - `index.tsx` boots the React app
 - `App.tsx` lazy-loads visual components and the long landing page
@@ -60,6 +62,7 @@ Key entry points:
 ## Environment Variables
 
 The Vite config maps the following at build time:
+
 - `GEMINI_API_KEY` → `process.env.GEMINI_API_KEY`
 
 Ensure `.env.local` exists for local runs. For CI, export the variable or provide an `.env` for the appropriate mode.
