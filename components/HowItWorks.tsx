@@ -6,21 +6,21 @@ import { HowItWorksIcon3 } from './icons/HowItWorksIcon3';
 const steps = [
   {
     Icon: HowItWorksIcon1,
-    title: 'Integrate Your Universe',
+    title: 'Connect Your AI',
     description:
-      'Connect all your data sources and tools into a single, unified command center. No more cosmic drift between platforms.',
+      'Plug promtflow.ai into your existing AI models and APIs. No changes to your current setup—just add reliability on top.',
   },
   {
     Icon: HowItWorksIcon2,
-    title: 'Deploy AI Agents',
+    title: 'Define Contracts',
     description:
-      'Launch intelligent automations that execute complex workflows at light speed. Set your mission objectives and watch them fly.',
+      'Set clear rules for what your AI should do and how it should behave. No more guessing games or random failures.',
   },
   {
     Icon: HowItWorksIcon3,
-    title: 'Achieve Clarity',
+    title: 'Ship with Confidence',
     description:
-      'Receive actionable insights and real-time analytics from a stellar dashboard. Navigate your operations with sovereign precision.',
+      'Deploy AI features that actually work. Get alerts when something changes, and sleep better knowing your AI won\'t break.',
   },
 ];
 
@@ -63,11 +63,11 @@ const HowItWorks: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Navigate Your Workflow with Stellar Precision
+            Fix Your AI in 3 Simple Steps
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            A three-step flight plan to operational mastery. From data
-            consolidation to actionable intelligence.
+            No complex migrations or rewrites. Just add reliability to your existing AI setup 
+            and start sleeping better at night.
           </p>
         </div>
         <div className="relative max-w-main mx-auto">

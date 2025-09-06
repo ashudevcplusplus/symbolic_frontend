@@ -1,6 +1,6 @@
 # Playwright E2E Tests
 
-This directory contains end-to-end tests for the Synergize landing page using Playwright.
+This directory contains end-to-end tests for the promtflow.ai landing page using Playwright.
 
 ## Test Files
 

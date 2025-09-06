@@ -31,7 +31,7 @@ Control cost without degrading quality
 Context bloat, verbose system prompts, and naive routing inflate tokens and latency tails.
 Set per‑step budgets and token envelopes; gate tools by policy; route based on intent, budget, and targets; attribute $/correct‑answer and p50/p95/p99 to tune outcomes, not vibes.
 Prove correctness and coverage
-“Probably correct” isn’t enough in high‑stakes domains.
+"Probably correct" isn't enough in high‑stakes domains.
 Evaluate against golden sets and scenario matrices; track pass@1, constraint satisfaction, and drift; stop regressions before they ship.
 
 Who this impacts
@@ -55,7 +55,7 @@ We enforce executable contracts at runtime—typed I/O, budgets, guardrails, det
 Who should join the waitlist?
 Researchers, high‑precision teams (fintech, health, safety‑critical), and AI platform owners who need reproducibility, governance, and cost control.
 When will this be available?
-We’re working with select organizations to shape the standard. Join the waitlist to be notified when we’re ready for broader access.
+We're working with select organizations to shape the standard. Join the waitlist to be notified when we're ready for broader access.
 
 Privacy
 Terms

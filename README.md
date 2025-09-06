@@ -2,7 +2,9 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Synergize SaaS
+# promtflow.ai
+
+Stop shipping AI that fails in production. promtflow.ai turns unpredictable AI into reliable, cost-controlled systems that your team can trust.
 
 Modern React + Vite app with a premium landing experience and theme system. Includes optimized builds, PWA-ready plugins, and Tailwind-on-CDN for zero-config styling.
 

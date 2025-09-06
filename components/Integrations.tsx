@@ -49,7 +49,7 @@ const Integrations: React.FC = () => {
             Connect Your Entire Digital Universe
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Synergize integrates seamlessly with the tools your team already
+            promtflow.ai integrates seamlessly with the tools your team already
             loves.
           </p>
         </div>

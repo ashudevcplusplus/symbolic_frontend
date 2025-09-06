@@ -1,4 +1,4 @@
-SPEC:Synergize LP v2-min
+SPEC:promtflow.ai LP v2-min
 
 // Σ: codebooks
 ST:{idle,hover,focus,active,visible,popular,closed,open,playing,hidden,dragging}
