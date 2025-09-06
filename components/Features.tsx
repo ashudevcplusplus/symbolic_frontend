@@ -19,27 +19,27 @@ const features: Feature[] = [
   {
     id: 1 as FeatureId,
     IconComponent: FeatureIcon1,
-    title: 'AI That Actually Works',
+    title: 'Contract-Based Communication',
     description:
-      'Stop debugging AI failures. Our contracts guarantee your AI will work the same way every time, eliminating the randomness that breaks production.',
+      'Replace ambiguous natural language with typed, executable contracts. Eliminate instruction variance and ensure deterministic I/O across all AI interactions.',
     position: { top: '10%', left: '20%' },
     depth: 0.8, // Closest
   },
   {
     id: 2 as FeatureId,
     IconComponent: FeatureIcon2,
-    title: 'Cost Control That Works',
+    title: 'Intelligent Cost Control',
     description:
-      'Know exactly what you\'re paying for. Set budgets per request, track costs by feature, and automatically route to cheaper models when appropriate.',
+      'Set per-step budgets, attribute costs to specific outcomes, and route requests based on intent and targets. Control spending without sacrificing quality.',
     position: { top: '50%', left: '75%' },
     depth: 0.4, // Farthest
   },
   {
     id: 3 as FeatureId,
     IconComponent: FeatureIcon3,
-    title: 'Production Monitoring',
+    title: 'Proven Determinism',
     description:
-      'Catch problems before your customers do. Continuous monitoring detects when your AI starts behaving differently and alerts you immediately.',
+      'Continuous evaluation against golden sets, scenario matrices, and pass@1 metrics. Stop regressions before they ship in high-stakes environments.',
     position: { top: '70%', left: '15%' },
     depth: 0.6, // Middle
   },
@@ -98,11 +98,11 @@ const Features: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Finally, AI You Can Trust
+            The Precision Layer for Mission-Critical AI
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Stop gambling with AI. Get predictable results, controlled costs, and production monitoring 
-            that actually works.
+            Language is fuzzy; contracts are precise. Built for teams that demand determinism, 
+            auditability, and cost discipline.
           </p>
         </div>
         <div className="grid lg:grid-cols-3 gap-16 items-center">

@@ -10,29 +10,29 @@ interface FAQItem {
 const faqData: FAQItem[] = [
   {
     question:
-      'How is this different from just using better prompts?',
+      'What makes this different from existing prompt management tools?',
     answer:
-      'Better prompts help, but they\'re still unpredictable. promtflow.ai enforces strict contracts that guarantee your AI will work the same way every time. No more "it worked in testing but broke in production" moments.',
+      'We focus on deterministic contracts, cost discipline, and proving coverage rather than just versioning prompts. Built for high-stakes environments where "probably correct" isn\'t enough—we enforce executable contracts at runtime with typed I/O, budgets, guardrails, and continuous evaluation.',
   },
   {
-    question: 'Will this slow down my AI responses?',
+    question: 'Who should join the waitlist?',
     answer:
-      'Actually, it speeds them up. By eliminating failed requests and unnecessary complexity, most teams see faster response times and lower costs. Plus, you\'ll spend less time debugging.',
+      'Researchers needing low-variance, reproducible runs; high-precision teams in fintech, health, or safety-critical domains who must bound failure modes and prove coverage; and AI platform owners who need cost control, governance, and audit trails.',
   },
   {
-    question: 'How much does it cost?',
+    question: 'When will this be available?',
     answer:
-      'We\'re launching with a simple pricing model: pay for what you use, with no hidden fees. Most teams save money by eliminating failed requests and optimizing their AI usage.',
+      "We're working with select organizations to shape the standard. Join the waitlist to be notified when we're ready for broader access—we're focusing on getting the foundation right before scaling.",
   },
   {
-    question: 'Can I try it with my existing AI setup?',
+    question: 'How does contract-based communication work?',
     answer:
-      'Yes! promtflow.ai works with your existing AI models and infrastructure. You can start with a single feature and gradually add more contracts as you see the benefits.',
+      'Instead of free-form natural language prompts that can be interpreted differently each time, you define typed contracts with specific input/output schemas, validation rules, and execution constraints. The AI must satisfy these contracts, eliminating ambiguity and ensuring deterministic results.',
   },
   {
-    question: 'What if my AI needs to be creative or flexible?',
+    question: 'What kind of cost control and attribution do you provide?',
     answer:
-      'Contracts don\'t limit creativity—they ensure reliability. You can still get varied outputs, but within predictable bounds. Think of it like having guardrails on a highway: you can still drive anywhere, but you won\'t crash.',
+      'We provide granular cost attribution down to individual requests, per-step budgets, automatic routing based on cost targets, and detailed analytics showing $/correct-answer ratios. You can set policies that prevent overspending while maintaining quality.',
   },
 ];
 
@@ -88,10 +88,10 @@ const FAQ: React.FC = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Questions You're Probably Asking
+            Frequently Asked Questions
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Real questions from AI teams who are tired of unreliable systems and unpredictable costs.
+            Everything you need to know about our platform for precision AI communication.
           </p>
         </div>
         <div className="max-w-reading mx-auto">

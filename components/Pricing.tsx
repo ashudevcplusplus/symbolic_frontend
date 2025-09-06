@@ -106,42 +106,39 @@ const Pricing: React.FC = () => {
 
   const plans = [
     {
-      name: 'Starter',
-      price: { monthly: '$99', yearly: '$79' },
-      description: 'Perfect for small teams getting started with reliable AI.',
+      name: 'Asteroid',
+      price: { monthly: '$29', yearly: '$24' },
+      description: 'For solo astronauts and small crews.',
       features: [
-        'Up to 10 AI endpoints',
-        'Basic monitoring & alerts',
-        'Cost tracking & budgets',
-        'Email support',
-        '30-day money-back guarantee',
+        '5 Projects',
+        '10GB Storage',
+        'Basic Analytics',
+        'Email Support',
       ],
     },
     {
-      name: 'Professional',
-      price: { monthly: '$299', yearly: '$239' },
-      description: 'For teams shipping AI to customers.',
+      name: 'Planet',
+      price: { monthly: '$79', yearly: '$65' },
+      description: 'For growing fleets and established colonies.',
       features: [
-        'Unlimited AI endpoints',
-        'Advanced monitoring & analytics',
-        'Custom contracts & validation',
-        'Priority support',
-        'Team collaboration tools',
-        'API access',
+        'Unlimited Projects',
+        '100GB Storage',
+        'Advanced Analytics',
+        'Automation Workflows',
+        'Priority Support',
       ],
       popular: true,
     },
     {
-      name: 'Enterprise',
+      name: 'Galaxy',
       price: { monthly: 'Custom', yearly: 'Custom' },
-      description: 'For organizations with mission-critical AI.',
+      description: 'For interstellar enterprises.',
       features: [
-        'Everything in Professional',
-        'Dedicated account manager',
-        'Custom integrations',
-        '24/7 phone support',
-        'SLA guarantees',
-        'On-premise deployment',
+        'Everything in Planet',
+        'Dedicated Account Manager',
+        'Custom Integrations',
+        '24/7 Support',
+        'SLA',
       ],
     },
   ];
@@ -155,11 +152,10 @@ const Pricing: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Simple Pricing, Real Savings
+            Pricing That's Not Astronomical
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Most teams save more on AI costs than they spend on promtflow.ai. 
-            No hidden fees, no complex contracts.
+            Choose your orbit. No hidden fees, no asteroid belts of complexity.
           </p>
         </div>
 
@@ -212,9 +208,9 @@ const Pricing: React.FC = () => {
         {/* Disclaimers in text.muted (r≥4.5) - PAGE β Color Θ specification */}
         <div className="text-center">
           <p className="text-text-muted text-sm font-light max-w-4xl mx-auto leading-relaxed">
-            All plans include a 30-day money-back guarantee. Most teams see ROI within the first month 
-            from reduced AI failures and optimized costs. Pricing is subject to change with 30 days notice. 
-            All prices shown are in USD.
+            All plans include a 30-day money-back guarantee. Enterprise plans
+            include custom SLAs and dedicated support. Pricing is subject to
+            change with 30 days notice. All prices shown are in USD.
           </p>
         </div>
       </div>

@@ -54,7 +54,7 @@ const Newsletter: React.FC<NewsletterProps> = () => {
 
       setStatus('success');
       setMessage(
-        "Thanks for joining! We'll notify you when early access is ready."
+        "Thanks for joining! We'll notify you when we're ready for broader access."
       );
       setEmail('');
     } catch {
@@ -76,11 +76,11 @@ const Newsletter: React.FC<NewsletterProps> = () => {
             }}
           >
             <h3 className="text-2xl font-bold text-text-primary mb-4">
-              Stop Losing Sleep Over AI Failures
+              Join the Waitlist
             </h3>
             <p className="text-text-secondary mb-8">
-              Be among the first to fix your AI reliability problems. 
-              Get early access to promtflow.ai and join teams who've already solved this.
+              Be among the first to experience the precision layer for mission-critical AI. 
+              Enter your email address below.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -106,7 +106,7 @@ const Newsletter: React.FC<NewsletterProps> = () => {
                   disabled={status === 'submitting' || !email.trim()}
                   className="px-6 py-3 bg-accent-primary text-white font-semibold rounded-md hover:bg-accent-mid focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
                 >
-                  {status === 'submitting' ? 'Getting Access...' : 'Get Early Access'}
+                  {status === 'submitting' ? 'Joining...' : 'Join Waitlist'}
                 </button>
               </div>
 

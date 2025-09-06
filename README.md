@@ -4,7 +4,7 @@
 
 # promtflow.ai
 
-Stop shipping AI that fails in production. promtflow.ai turns unpredictable AI into reliable, cost-controlled systems that your team can trust.
+Replace ambiguous prompts with typed, executable contracts. Deterministic, auditable, and cost‑controlled outcomes for high‑stakes systems.
 
 Modern React + Vite app with a premium landing experience and theme system. Includes optimized builds, PWA-ready plugins, and Tailwind-on-CDN for zero-config styling.
 
