@@ -1,4 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Lazy load heavy visual components
 const Starfield = lazy(() => import('./components/Starfield'));
@@ -31,32 +32,34 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="antialiased font-sans overflow-x-hidden">
-      <GrainEffect />
-      <Suspense
-        fallback={
-          <div className="fixed inset-0 bg-surface-0 flex items-center justify-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary"></div>
-          </div>
-        }
-      >
-        <Starfield />
-      </Suspense>
-      <Suspense fallback={null}>
-        <InteractiveGlow />
-      </Suspense>
-      <div className="relative z-10">
+    <ErrorBoundary>
+      <div className="antialiased font-sans overflow-x-hidden">
+        <GrainEffect />
         <Suspense
           fallback={
-            <div className="min-h-screen flex items-center justify-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
+            <div className="fixed inset-0 bg-surface-0 flex items-center justify-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary"></div>
             </div>
           }
         >
-          <LongLandingPage />
+          <Starfield />
         </Suspense>
+        <Suspense fallback={null}>
+          <InteractiveGlow />
+        </Suspense>
+        <div className="relative z-10">
+          <Suspense
+            fallback={
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
+              </div>
+            }
+          >
+            <LongLandingPage />
+          </Suspense>
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 

@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-left">
-            <h1 className="text-5xl md:text-[3.5rem] lg:text-[4rem] font-extrabold font-heading leading-heading tracking-display mb-6 text-balance">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading leading-heading tracking-display mb-6 text-balance">
               <AnimatedTitle
                 text="Precision for Mission-Critical AI."
                 isVisible={isIgnited}
