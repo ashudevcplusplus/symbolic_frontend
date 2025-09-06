@@ -1,41 +1,53 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { FeatureIcon1 } from './icons/FeatureIcon1';
 import { FeatureIcon2 } from './icons/FeatureIcon2';
 import { FeatureIcon3 } from './icons/FeatureIcon3';
 
-const features = [
+// Type definitions for better type safety
+type FeatureId = 1 | 2 | 3;
+
+interface Feature {
+  id: FeatureId;
+  IconComponent: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  position: { top: string; left: string };
+  depth: number;
+}
+
+const features: Feature[] = [
   {
-    id: 1,
+    id: 1 as FeatureId,
     IconComponent: FeatureIcon1,
-    title: 'Orbital Collaboration',
+    title: 'Contract-Based Communication',
     description:
-      'Create a gravitational center for your team with shared spaces for real-time file sharing and communication.',
+      'Replace ambiguous natural language with typed, executable contracts. Eliminate instruction variance and ensure deterministic I/O across all AI interactions.',
     position: { top: '10%', left: '20%' },
     depth: 0.8, // Closest
   },
   {
-    id: 2,
+    id: 2 as FeatureId,
     IconComponent: FeatureIcon2,
-    title: 'Warp-Speed Automation',
+    title: 'Intelligent Cost Control',
     description:
-      'Launch automated workflows that travel at the speed of light, saving you from traversing the same manual tasks.',
+      'Set per-step budgets, attribute costs to specific outcomes, and route requests based on intent and targets. Control spending without sacrificing quality.',
     position: { top: '50%', left: '75%' },
     depth: 0.4, // Farthest
   },
   {
-    id: 3,
+    id: 3 as FeatureId,
     IconComponent: FeatureIcon3,
-    title: 'Galactic Analytics',
+    title: 'Proven Determinism',
     description:
-      "Explore a universe of data and gain deep insights into your team's performance with stellar dashboards.",
+      'Continuous evaluation against golden sets, scenario matrices, and pass@1 metrics. Stop regressions before they ship in high-stakes environments.',
     position: { top: '70%', left: '15%' },
     depth: 0.6, // Middle
   },
 ];
 
 const Features: React.FC = () => {
-  const [activeFeature, setActiveFeature] = useState(features[0]);
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const [activeFeature, setActiveFeature] = useState<Feature>(features[0]);
+  const [hoveredFeature, setHoveredFeature] = useState<FeatureId | null>(null);
 
   const featureRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -86,11 +98,11 @@ const Features: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-primary mb-4 text-balance">
-            Discover Your Constellation of Tools
+            The Precision Layer for Mission-Critical AI
           </h2>
           <p className="text-xl text-text-muted max-w-reading mx-auto font-light text-pretty">
-            Hover over the cosmos and click on a star to explore the features
-            that form the Synergize universe.
+            Language is fuzzy; contracts are precise. Built for teams that
+            demand determinism, auditability, and cost discipline.
           </p>
         </div>
         <div className="grid lg:grid-cols-3 gap-16 items-center">
@@ -186,7 +198,7 @@ const Features: React.FC = () => {
                 }}
                 className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-orbital p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 style={{ ...feature.position, willChange: 'transform' }}
-                onMouseEnter={() => setHoveredFeature(feature.id)}
+                onMouseEnter={() => setHoveredFeature(feature.id as FeatureId)}
                 onMouseLeave={() => setHoveredFeature(null)}
                 onClick={() => setActiveFeature(feature)}
                 aria-label={`Select feature: ${feature.title}`}

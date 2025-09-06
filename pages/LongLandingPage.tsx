@@ -20,6 +20,7 @@ const Footer = lazy(() => import('../components/Footer'));
 const ChangelogTicker = lazy(() => import('../components/ChangelogTicker'));
 const CookieConsent = lazy(() => import('../components/CookieConsent'));
 const ProgressBackToTop = lazy(() => import('../components/ProgressBackToTop'));
+const Problems = lazy(() => import('../components/Problems'));
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -28,31 +29,50 @@ const LoadingFallback = () => (
   </div>
 );
 
+// Type definitions for better type safety
+interface StatData {
+  label: string;
+  value: string;
+  footnote: string;
+}
+
+interface ComparisonRow {
+  feature: string;
+  ours: boolean;
+  theirs: boolean;
+  note?: string;
+}
+
+interface ComparisonData {
+  columns: Array<{ label: string }>;
+  rows: ComparisonRow[];
+}
+
 const LongLandingPage: React.FC = () => {
   // Sample data for new components
-  const statsData = [
+  const statsData: StatData[] = [
     { label: 'Active Users', value: '50K+', footnote: 'and growing daily' },
     { label: 'Uptime', value: '99.9%', footnote: 'industry leading' },
     { label: 'Response Time', value: '<100ms', footnote: 'lightning fast' },
   ];
 
-  const comparisonData = {
-    columns: [{ label: 'Synergize' }, { label: 'Competitor X' }],
+  const comparisonData: ComparisonData = {
+    columns: [{ label: 'promtflow.ai' }, { label: 'Competitor X' }],
     rows: [
       {
-        feature: 'AI Model Integration',
+        feature: 'Contract-Based Communication',
         ours: true,
         theirs: false,
-        note: 'Native support for 50+ models',
+        note: 'Deterministic, typed I/O contracts',
       },
-      { feature: 'Real-time Processing', ours: true, theirs: true },
-      { feature: 'Enterprise Security', ours: true, theirs: false },
-      { feature: 'Custom Workflows', ours: true, theirs: true },
+      { feature: 'Cost Control & Attribution', ours: true, theirs: false },
+      { feature: 'Proven Determinism', ours: true, theirs: false },
+      { feature: 'High-Stakes Environments', ours: true, theirs: false },
       {
-        feature: 'API Rate Limits',
+        feature: 'Legacy Prompt Management',
         ours: false,
         theirs: true,
-        note: "We don't limit your creativity",
+        note: "We don't just version prompts",
       },
     ],
   };
@@ -89,6 +109,11 @@ const LongLandingPage: React.FC = () => {
         {/* Hero Section */}
         <Suspense fallback={<LoadingFallback />}>
           <Hero />
+        </Suspense>
+
+        {/* Problems Section */}
+        <Suspense fallback={<LoadingFallback />}>
+          <Problems />
         </Suspense>
 
         {/* Social Proof */}
